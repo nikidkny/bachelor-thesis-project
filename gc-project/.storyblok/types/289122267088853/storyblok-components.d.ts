@@ -7,7 +7,7 @@ export interface Case {
   introText?: StoryblokRichtext;
   coverImage?: StoryblokAsset;
   assetGallery?: StoryblokMultiasset;
-  body?: (Case | CaseOverview | Page)[];
+  body?: (Case | CaseOverview | Homepage | Page | SimpleHeadline)[];
   industry?: {
     [k: string]: unknown;
   }[];
@@ -17,17 +17,30 @@ export interface Case {
 }
 
 export interface CaseOverview {
+  title?: string;
   cases: (ISbStoryData<Case> | string)[];
   component: "CaseOverview";
   _uid: string;
   [k: string]: unknown;
 }
 
+export interface Homepage {
+  component: "Homepage";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface Page {
-  body?: (Case | CaseOverview | Page)[];
+  body?: (Case | CaseOverview | Homepage | Page | SimpleHeadline)[];
   component: "page";
   _uid: string;
   [k: string]: unknown;
 }
 
-export type ContentType = Case | CaseOverview | Page;
+export interface SimpleHeadline {
+  component: "SimpleHeadline";
+  _uid: string;
+  [k: string]: unknown;
+}
+
+export type ContentType = Case | CaseOverview | Homepage | Page;

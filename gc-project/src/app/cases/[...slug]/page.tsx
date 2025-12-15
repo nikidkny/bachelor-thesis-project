@@ -1,5 +1,6 @@
 import { StoryblokStory } from "@storyblok/react/rsc";
 import { fetchStoryblokStory } from "@/lib/storyblok/fetch";
+import { notFound } from "next/navigation";
 
 export default async function CasePage({
   params,
@@ -9,7 +10,7 @@ export default async function CasePage({
   const { slug } = await params;
 
   const currentSlug = Array.isArray(slug) ? slug.join("/") : slug;
-  const { data } = await fetchStoryblokStory(currentSlug);
+  const { data } = await fetchStoryblokStory("cases/" + currentSlug);
   if (!data?.story) {
     notFound();
   }

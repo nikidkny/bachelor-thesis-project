@@ -4,11 +4,11 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
 export async function generateStaticParams() {
-  return [{ slug: "projects" }];
+  return [{ slug: "home" }];
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { data } = await fetchStoryblokStory("projects");
+  const { data } = await fetchStoryblokStory("home");
   if (!data?.story) {
     return {
       title: "Page Not Found",
@@ -17,11 +17,11 @@ export async function generateMetadata(): Promise<Metadata> {
   }
   return {
     title: data.story.name,
-    description: data.story.content?.meta_description || "Cases Page",
+    description: data.story.content?.meta_description,
   };
 }
-export default async function CasesPage() {
-  const { data } = await fetchStoryblokStory("projects");
+export default async function HomePage() {
+  const { data } = await fetchStoryblokStory("home");
   if (!data?.story) {
     notFound();
   }
