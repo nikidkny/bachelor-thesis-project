@@ -1,0 +1,126 @@
+[
+  {
+    "name": "Case",
+    "display_name": null,
+    "description": "",
+    "created_at": "2025-12-12T17:53:20.962Z",
+    "updated_at": "2025-12-12T18:01:32.617Z",
+    "id": 122357354351047,
+    "schema": {
+      "title": {
+        "type": "text",
+        "pos": 0,
+        "id": "rswgiMpgR_mZqLJSsAA2ww"
+      },
+      "introText": {
+        "type": "richtext",
+        "pos": 1,
+        "id": "5HIxUu-RSdKWGG_7yRFugQ"
+      },
+      "coverImage": {
+        "type": "asset",
+        "pos": 2,
+        "id": "m5zMdB_KQfOBQbJJFf3aAg"
+      },
+      "assetGallery": {
+        "type": "multiasset",
+        "pos": 3,
+        "id": "jGUmt2i1RJqq3HjgsRpCvg"
+      },
+      "body": {
+        "type": "bloks",
+        "pos": 4,
+        "id": "QPfv5q0qQzq8px4dlcwSzw"
+      },
+      "industry": {
+        "type": "options",
+        "pos": 5,
+        "id": "XMVG26ztR0iF_8KPQC07GA"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Case",
+    "component_group_uuid": "3f168a1f-a6a6-4aab-80cb-52c3cb2df300",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "CaseOverview",
+    "display_name": null,
+    "description": "",
+    "created_at": "2025-12-12T18:02:50.327Z",
+    "updated_at": "2025-12-15T09:13:01.940Z",
+    "id": 122359686470091,
+    "schema": {
+      "cases": {
+        "type": "options",
+        "pos": 0,
+        "is_reference_type": true,
+        "source": "internal_stories",
+        "entry_appearance": "card",
+        "allow_advanced_search": true,
+        "required": true,
+        "folder_slug": "cases/",
+        "filter_content_type": [
+          "Case"
+        ],
+        "min_options": 3,
+        "id": "hdYjlj0BRISUCEK4hdsL2g"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "CaseOverview",
+    "component_group_uuid": "3f168a1f-a6a6-4aab-80cb-52c3cb2df300",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "page",
+    "display_name": null,
+    "description": null,
+    "created_at": "2025-12-12T17:50:28.075Z",
+    "updated_at": "2025-12-12T17:50:28.075Z",
+    "id": 122356646205891,
+    "schema": {
+      "body": {
+        "type": "bloks",
+        "id": "CjsouuRZRbyk8DcXmnjAow"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "page",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  }
+]
