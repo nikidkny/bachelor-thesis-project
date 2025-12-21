@@ -1,6 +1,6 @@
 // import { ISbLinksResult } from "storyblok-js-client";
 
-import type { DataSourceEntryType } from "@/types";
+import { StoryblokDatasourceEntryType } from "@/types";
 import getStoryblokApi from "./api";
 
 export type State = "INIT" | "LOADING" | "RESULTS" | "NO_RESULTS" | "ERROR";
@@ -22,15 +22,31 @@ export async function fetchStoryblokStory(slug: string, preview: boolean) {
 }
 
 // fetch all stories
-export async function fetchStoryblokStories(slugs: "cases", preview: boolean) {
+export async function fetchStoryblokStories(slugs: string, preview: boolean) {
   const storyblokApi = getStoryblokApi(preview);
   try {
     return await storyblokApi.get("cdn/stories/", {
-      starts_with: "cases/",
+      starts_with: slugs,
       version: preview ? "draft" : "published",
     });
   } catch (error) {
     console.log("Failed to fetch all stories", error);
     return { data: null };
+  }
+}
+
+// fetch storyblok datasource entries
+export async function fetchStoryblokDatasource(
+  datasource: "services",){
+  const storyblokApi = getStoryblokApi(false);
+  try {
+    const response = await storyblokApi.get("cdn/datasource_entries/", {
+      datasource
+    });
+    return response.data.datasource_entries as StoryblokDatasourceEntryType[];
+  } catch (error) {
+   // TODO: handle error
+     console.error("Failed to fetch datasources:", error);
+    return [];
   }
 }

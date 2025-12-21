@@ -22,8 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 export default async function HomePage() {
   const { data } = await fetchStoryblokStory("home");
-  if (!data?.story) {
-    notFound();
-  }
+  if (!data?.story) notFound();
+  
   return <StoryblokStory story={data.story} />;
 }
