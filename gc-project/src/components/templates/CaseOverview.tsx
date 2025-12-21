@@ -1,6 +1,6 @@
 import { storyblokEditable } from "@storyblok/react/rsc";
 import type { CaseOverview as CaseOverviewType } from "@/types";
-import CaseOverviewClient from "@/components/core/CaseOverviewClient";
+import CaseOverviewClient from "@/components/atoms/CaseOverviewClient";
 
 export default function CaseOverview({ blok }: { blok: CaseOverviewType }) {
   return (

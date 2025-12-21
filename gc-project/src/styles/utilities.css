@@ -1,0 +1,19 @@
+@layer utilities {
+  .custom-grid {
+    @apply grid grid-cols-[repeat(var(--custom-grid-columns),minmax(0,1fr))] gap-x-(--custom-grid-gap) px-(--custom-grid-padding);
+  }
+
+  .typo-h2 {
+    @apply text-[32px] leading-[120%] tracking-[0.05em] sm:text-[48px] md:text-[80px] xl:text-[96px];
+
+  }
+
+  .typo-h3 {
+    @apply text-[32px] leading-[120%] tracking-[0.05em] md:text-[48px] md:leading-[120%] md:tracking-[0.1em] xl:text-[64px] xl:tracking-[0.15em];
+
+  }
+
+  .backdrop-blur-220 {
+    backdrop-filter: blur(220px);
+  }
+}

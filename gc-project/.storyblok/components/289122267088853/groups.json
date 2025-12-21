@@ -1,5 +1,26 @@
 [
   {
+    "name": "components",
+    "id": 123691516726758,
+    "uuid": "0ce4e5c9-635f-4ac8-8001-cfb357664ea5",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "form-helper-bloks",
+    "id": 125059133138542,
+    "uuid": "a9202bc7-10b2-4b70-9daf-93823ad420dc",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "settings",
+    "id": 123690542235108,
+    "uuid": "8f8db93b-1a92-40c4-8bd1-cc6e6189c9a1",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
     "name": "templates",
     "id": 123291554842541,
     "uuid": "3f168a1f-a6a6-4aab-80cb-52c3cb2df300",
