@@ -5,7 +5,7 @@ import Richtext from "../atoms/Richtext";
 import classNames from "classnames";
 
 export default function TextAsset({ blok }: { blok: TextAssetType }) {
-  console.log("TextAsset blok:", blok.alignAsset);
+  // console.log("TextAsset blok:", blok.alignAsset);
   const isAssetLeft = blok.alignAsset === "alignLeft";
   return (
     <div className="custom-grid col-span-full px-0! py-8 gap-y-4">

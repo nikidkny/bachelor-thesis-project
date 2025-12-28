@@ -10,12 +10,13 @@ export interface AssetBlok {
 }
 
 export interface Case {
-  coverImage: StoryblokAsset;
+  coverAsset: AssetBlok[];
   title: string;
   projectYear: string;
   services: (number | string)[];
   introText: StoryblokRichtext;
   body?: (AssetBlok | ContactForm | SimpleLink | TextAsset)[];
+  cubeCover: StoryblokAsset;
   component: "Case";
   _uid: string;
   [k: string]: unknown;
