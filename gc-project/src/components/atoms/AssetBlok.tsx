@@ -5,6 +5,7 @@ import ImageAsset, { ImageAssetProps } from "./ImageAsset";
 import VideoAsset, { VideoAssetProps } from "./VideoAsset";
 // import ModelAsset from "./3DAsset";
 import classNames from "classnames";
+import ModelAsset from "./3DAsset";
 
 /* TODO: CHECK 3D MODEL FROM SB */
 
@@ -70,11 +71,11 @@ export default function AssetBlok({
           {...videoProps}
         />
       )}
-      {/* {assetType === "model" && (
+      {assetType === "model" && (
             <ModelAsset
                url={asset.filename}
             />
-        )}   */}
+        )}  
     </>
   );
 }

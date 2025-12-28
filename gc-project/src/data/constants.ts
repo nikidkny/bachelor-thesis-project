@@ -15,3 +15,12 @@ export const BREAKPOINTS: Required<BreakpointsValues<number>>  = {
   xl: 1280,
   "2xl": 1536,
 };
+
+
+export const CARDHEIGHT = 8;
+export const CARDWIDTH = 8;
+export const CARDDEPTH = 8;
+export const GAP = 0.01;
+export const TOTALCARDHEIGHT = CARDHEIGHT + GAP;
+export const TOWERGAP= CARDWIDTH + 1.5;
+export const MAXTOWERHEIGHT= 6;

@@ -1,9 +1,9 @@
 import type { Case as CaseType } from "@/types";
 import { StoryblokServerComponent } from "@storyblok/react/rsc";
 import Richtext from "../atoms/Richtext";
-import ImageAsset from "../atoms/ImageAsset";
 import Tag from "../atoms/Tag";
 import { formatDatasourceNames } from "@/utils/formatDatasourceNames";
+import AssetBlok from "../atoms/AssetBlok";
 
 export default function Case({ blok }: { blok: CaseType }) {
   // TODO: FORMAT SERVICE NAMES
@@ -11,7 +11,7 @@ export default function Case({ blok }: { blok: CaseType }) {
   return (
     <div className="relative col-span-full">
       <div className="relative col-span-full aspect-16/12 w-full md:aspect-16/9">
-        <ImageAsset asset={blok.coverImage} fill className="object-cover" />
+        <AssetBlok blok={blok.coverAsset[0]}  />
       </div>
       <div className="custom-grid col-span-full">
         <div className="col-span-full flex flex-col gap-4 py-8">

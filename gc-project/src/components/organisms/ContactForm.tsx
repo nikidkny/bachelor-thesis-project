@@ -17,7 +17,7 @@ export default function ContactForm({ blok }: { blok: ContactFormType }) {
     message: "",
   });
 
-  console.log(blok.placeholderServices)
+  // console.log(blok.placeholderServices)
   const updateField = (field: keyof typeof formData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
