@@ -49,7 +49,6 @@ const ImageAsset = forwardRef<HTMLImageElement, ImageAssetProps>(
         fill={isFixedSize === false}
         sizes={isFixedSize ? sizes : (sizes ?? IMAGE_SIZES[sizePreset])}
         loader={storyblokImageLoader}
-        {...storyblokEditable(blok as any)}
         {...props}
       />
     );

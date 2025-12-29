@@ -42,7 +42,7 @@ export default function NavBar({
   }, []);
   return (
     <nav
-    {...storyblokEditable(blok as any)}
+    {...storyblokEditable(settings as any)}
       className={classNames(
         "fixed top-0 left-0 z-999 w-full col-span-full flex items-center px-4 py-4 transition-colors duration-200",
         { "bg-white": scrolled, "bg-transparent": !scrolled },
