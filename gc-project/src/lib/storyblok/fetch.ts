@@ -12,7 +12,7 @@ export async function fetchStoryblokStory(slug: string) {
   const storyblokApi = getStoryblokApi();
   try {
     return await storyblokApi.get(`cdn/stories/${slug}`, {
-      // version: preview ? "draft" : "published",
+       version: process.env.NODE_ENV === "development" ? "draft" : "published",
       resolve_relations: resolveRelations,
     });
   } catch (error) {
@@ -27,7 +27,7 @@ export async function fetchStoryblokStories(slugs: string) {
   try {
     return await storyblokApi.get("cdn/stories/", {
       starts_with: slugs,
-      // version: preview ? "draft" : "published",
+       version: process.env.NODE_ENV === "development" ? "draft" : "published",
     });
   } catch (error) {
     console.log("Failed to fetch all stories", error);
