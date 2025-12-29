@@ -5,11 +5,10 @@ import { notFound } from "next/navigation";
 export default async function CasePage({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
+  params: { slug: string[] };
 }) {
-  const { slug } = await params;
 
-  const currentSlug = Array.isArray(slug) ? slug.join("/") : slug;
+  const currentSlug = params.slug.join("/");
   const { data } = await fetchStoryblokStory("cases/" + currentSlug);
   if (!data?.story) {
     notFound();
