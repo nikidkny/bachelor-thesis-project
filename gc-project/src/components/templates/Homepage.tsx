@@ -2,8 +2,9 @@
 
 import { storyblokEditable } from "@storyblok/react";
 import ModelAsset from "../atoms/3DAsset";
+import { Homepage as HomepageType } from "@/types";
 
-export default function Homepage() {
+export default function Homepage({ blok }: { blok: HomepageType }) {
   /*TODO: ADJUST 3D MODEL TO LOOK EXACTLY LIKE THE LOGO */
   /*TODO: FORM VALIDATION */
   /*TODO: CREATE 3D CARD */
