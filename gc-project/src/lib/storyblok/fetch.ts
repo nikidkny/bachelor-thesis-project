@@ -2,17 +2,23 @@
 
 import { StoryblokDatasourceEntryType } from "@/types";
 import getStoryblokApi from "./api";
+import { draftMode } from "next/headers";
 
 export type State = "INIT" | "LOADING" | "RESULTS" | "NO_RESULTS" | "ERROR";
 
 export const resolveRelations = ["CaseOverview.cases"];
+export  const draft = await draftMode();
 
 // fetch a single story
 export async function fetchStoryblokStory(slug: string) {
+  const draft = await draftMode();
   const storyblokApi = getStoryblokApi();
   try {
     return await storyblokApi.get(`cdn/stories/${slug}`, {
-       version: process.env.NODE_ENV === "development" ? "draft" : "published",
+      version:
+        process.env.NODE_ENV === "development" || draft.isEnabled
+          ? "draft"
+          : "published",
       resolve_relations: resolveRelations,
     });
   } catch (error) {
@@ -27,7 +33,7 @@ export async function fetchStoryblokStories(slugs: string) {
   try {
     return await storyblokApi.get("cdn/stories/", {
       starts_with: slugs,
-       version: process.env.NODE_ENV === "development" ? "draft" : "published",
+      version: process.env.NODE_ENV === "development" || draft.isEnabled? "draft" : "published",
     });
   } catch (error) {
     console.log("Failed to fetch all stories", error);
@@ -36,17 +42,16 @@ export async function fetchStoryblokStories(slugs: string) {
 }
 
 // fetch storyblok datasource entries
-export async function fetchStoryblokDatasource(
-  datasource: "services",){
+export async function fetchStoryblokDatasource(datasource: "services") {
   const storyblokApi = getStoryblokApi();
   try {
     const response = await storyblokApi.get("cdn/datasource_entries/", {
-      datasource
+      datasource,
     });
     return response.data.datasource_entries as StoryblokDatasourceEntryType[];
   } catch (error) {
-   // TODO: handle error
-     console.error("Failed to fetch datasources:", error);
+    // TODO: handle error
+    console.error("Failed to fetch datasources:", error);
     return [];
   }
 }

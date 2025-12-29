@@ -1,5 +1,5 @@
 import type { Case as CaseType } from "@/types";
-import { StoryblokServerComponent } from "@storyblok/react/rsc";
+import { storyblokEditable, StoryblokServerComponent } from "@storyblok/react/rsc";
 import Richtext from "../atoms/Richtext";
 import Tag from "../atoms/Tag";
 import { formatDatasourceNames } from "@/utils/formatDatasourceNames";
@@ -9,7 +9,7 @@ export default function Case({ blok }: { blok: CaseType }) {
   // TODO: FORMAT SERVICE NAMES
 
   return (
-    <div className="relative col-span-full">
+    <div {...storyblokEditable(blok as any)} className="relative col-span-full">
       <div className="relative col-span-full aspect-16/12 w-full md:aspect-16/9">
         <AssetBlok blok={blok.coverAsset[0]}  />
       </div>

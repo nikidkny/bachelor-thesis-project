@@ -1,5 +1,6 @@
 "use client";
 
+import { storyblokEditable } from "@storyblok/react";
 import ModelAsset from "../atoms/3DAsset";
 
 export default function Homepage() {
@@ -20,7 +21,7 @@ export default function Homepage() {
   /*TODO: FINISH PREVIEW/PUBLISHED, DEV/PROD SETUP*/
   /*TODO: EDIT NOT-FOUND PAGE*/
   return (
-    <div className="h-[75vh]">
+    <div {...storyblokEditable(blok as any)} className="h-[75vh]">
       <ModelAsset url="/gc-high-processed.gltf" env="/env.exr" />
     </div>
   );
