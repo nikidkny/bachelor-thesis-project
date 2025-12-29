@@ -8,5 +8,5 @@ export const GET = async (request: NextRequest) => {
   const draft = await draftMode();
   draft.enable();
 
-  redirect(`/${slug}${searchParams.toString()}`);
+  redirect(`/${slug}?${searchParams.toString()}`);
 };
