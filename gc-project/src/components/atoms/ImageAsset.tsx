@@ -5,6 +5,7 @@ import { ImageSizePresets, StoryblokAsset } from "@/types";
 import { forwardRef, memo } from "react";
 import classNames from "classnames";
 import { IMAGE_SIZES } from "@/data/constants";
+import { storyblokEditable } from "@storyblok/react";
 /* TODO: FIX ASPECT RATIO WHEN SCALING */
 export type ImageAssetProps = Omit<
   ImageProps,
@@ -48,6 +49,7 @@ const ImageAsset = forwardRef<HTMLImageElement, ImageAssetProps>(
         fill={isFixedSize === false}
         sizes={isFixedSize ? sizes : (sizes ?? IMAGE_SIZES[sizePreset])}
         loader={storyblokImageLoader}
+        {...storyblokEditable(blok as any)}
         {...props}
       />
     );

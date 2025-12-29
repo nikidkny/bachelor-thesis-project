@@ -6,6 +6,7 @@ import DropdownInput from "../atoms/DropdownInput";
 import Button from "../atoms/Button";
 import { useData } from "@/providers/DataProvider";
 import { useState } from "react";
+import { storyblokEditable } from "@storyblok/react";
 
 export default function ContactForm({ blok }: { blok: ContactFormType }) {
   const { datasourceObject } = useData();
@@ -40,7 +41,7 @@ export default function ContactForm({ blok }: { blok: ContactFormType }) {
     
   };
   return (
-    <div className="col-span-full flex flex-col items-center">
+    <div {...storyblokEditable(blok as any)} className="col-span-full flex flex-col items-center">
       <div className="flex w-full max-w-2xl flex-col gap-8 py-8">
         <div className="text-center">
           <h3 className="typo-h3">{blok.title}</h3>

@@ -4,7 +4,7 @@ import ImageAsset from "../atoms/ImageAsset";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import IconButton from "../atoms/IconButton";
-import { ISbStoryData } from "@storyblok/react/ssr";
+import { ISbStoryData, storyblokEditable } from "@storyblok/react/ssr";
 import { Settings } from "@/types";
 import { resolveLink } from "@/lib/storyblok/resolveLink";
 import classNames from "classnames";
@@ -42,6 +42,7 @@ export default function NavBar({
   }, []);
   return (
     <nav
+    {...storyblokEditable(blok as any)}
       className={classNames(
         "fixed top-0 left-0 z-999 w-full col-span-full flex items-center px-4 py-4 transition-colors duration-200",
         { "bg-white": scrolled, "bg-transparent": !scrolled },

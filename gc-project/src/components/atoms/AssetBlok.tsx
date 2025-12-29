@@ -6,6 +6,7 @@ import VideoAsset, { VideoAssetProps } from "./VideoAsset";
 // import ModelAsset from "./3DAsset";
 import classNames from "classnames";
 import ModelAsset from "./3DAsset";
+import { storyblokEditable } from "@storyblok/react";
 
 /* TODO: CHECK 3D MODEL FROM SB */
 
@@ -58,6 +59,7 @@ export default function AssetBlok({
             "object-contain": objectFit === "contain",
             "object-fill": objectFit === "fill",
           }, className)}
+          {...storyblokEditable(blok as any)}
           {...imageProps}
         />
       )}
@@ -68,12 +70,14 @@ export default function AssetBlok({
           width={width}
           height={height}
           className={classNames("relative size-full", className)}
+          {...storyblokEditable(blok as any)}
           {...videoProps}
         />
       )}
       {assetType === "model" && (
             <ModelAsset
                url={asset.filename}
+               {...storyblokEditable(blok as any)}
             />
         )}  
     </>
