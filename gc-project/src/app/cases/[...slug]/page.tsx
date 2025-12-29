@@ -10,7 +10,7 @@ export default async function CasePage({
   const { slug } = await params;
 
   const currentSlug = Array.isArray(slug) ? slug.join("/") : slug;
-  const { data } = await fetchStoryblokStory("cases/" + currentSlug, false);
+  const { data } = await fetchStoryblokStory("cases/" + currentSlug);
   if (!data?.story) {
     notFound();
   }

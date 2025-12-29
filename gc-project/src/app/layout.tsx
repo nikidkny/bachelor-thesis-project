@@ -45,11 +45,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   // fetch settings with fetchStoryblokStory
-  const settings = await fetchStoryblokStory("settings", false);
+  const settings = await fetchStoryblokStory("settings");
   const typedSettings = settings.data.story as ISbStoryData<Settings>;
 
   // fetch all cases with fetchstoryblokStories
-  const allCases = await fetchStoryblokStory("cases", false);
+  const allCases = await fetchStoryblokStory("cases");
   const casesData = allCases.data.story.content.cases as ISbStoryData<Case>[];
 
   const services = await fetchStoryblokDatasource("services");
