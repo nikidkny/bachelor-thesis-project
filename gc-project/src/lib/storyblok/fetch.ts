@@ -1,22 +1,17 @@
-// import { ISbLinksResult } from "storyblok-js-client";
-
 import { StoryblokDatasourceEntryType } from "@/types";
 import getStoryblokApi from "./api";
-import { draftMode } from "next/headers";
 
 export type State = "INIT" | "LOADING" | "RESULTS" | "NO_RESULTS" | "ERROR";
 
 export const resolveRelations = ["CaseOverview.cases"];
-export  const draft = await draftMode();
 
 // fetch a single story
-export async function fetchStoryblokStory(slug: string) {
-  const draft = await draftMode();
+export async function fetchStoryblokStory(slug: string,isDraftMode:boolean=false) {
   const storyblokApi = getStoryblokApi();
   try {
     return await storyblokApi.get(`cdn/stories/${slug}`, {
       version:
-        process.env.NODE_ENV === "development" || draft.isEnabled
+        process.env.NODE_ENV === "development" || isDraftMode 
           ? "draft"
           : "published",
       resolve_relations: resolveRelations,
@@ -28,12 +23,12 @@ export async function fetchStoryblokStory(slug: string) {
 }
 
 // fetch all stories
-export async function fetchStoryblokStories(slugs: string) {
+export async function fetchStoryblokStories(slugs: string,isDraftMode:boolean=false) {
   const storyblokApi = getStoryblokApi();
   try {
     return await storyblokApi.get("cdn/stories/", {
       starts_with: slugs,
-      version: process.env.NODE_ENV === "development" || draft.isEnabled? "draft" : "published",
+      version: process.env.NODE_ENV === "development" ||isDraftMode ? "draft" : "published",
     });
   } catch (error) {
     console.log("Failed to fetch all stories", error);

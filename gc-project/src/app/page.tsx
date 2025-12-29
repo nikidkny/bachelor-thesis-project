@@ -2,13 +2,15 @@ import { StoryblokStory } from "@storyblok/react/rsc";
 import { fetchStoryblokStory } from "@/lib/storyblok/fetch";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { draftMode } from "next/headers";
 
 export async function generateStaticParams() {
   return [{ slug: "home" }];
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { data } = await fetchStoryblokStory("home");
+  const draft = await draftMode();
+  const { data } = await fetchStoryblokStory("home", draft.isEnabled);
   if (!data?.story) {
     return {
       title: "Page Not Found",
@@ -21,8 +23,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 export default async function HomePage() {
-  const { data } = await fetchStoryblokStory("home");
+  const draft = await draftMode();
+  const { data } = await fetchStoryblokStory("home", draft.isEnabled);
   if (!data?.story) notFound();
-  
+
   return <StoryblokStory story={data.story} />;
 }

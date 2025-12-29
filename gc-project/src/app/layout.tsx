@@ -14,6 +14,7 @@ import DataProvider from "@/providers/DataProvider";
 import NavBar from "@/components/organisms/NavBar";
 import GradientBackground from "@/hooks/3D/GradientBackground";
 import { ISbStoryData } from "@storyblok/react/ssr";
+import { draftMode } from "next/headers";
 
 export const metadata = {
   title: "Good City portfolio platform",
@@ -44,12 +45,14 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+    const draft = await draftMode();
+
   // fetch settings with fetchStoryblokStory
-  const settings = await fetchStoryblokStory("settings");
+  const settings = await fetchStoryblokStory("settings", draft.isEnabled);
   const typedSettings = settings.data.story as ISbStoryData<Settings>;
 
   // fetch all cases with fetchstoryblokStories
-  const allCases = await fetchStoryblokStory("cases");
+  const allCases = await fetchStoryblokStory("cases", draft.isEnabled);
   const casesData = allCases.data.story.content.cases as ISbStoryData<Case>[];
 
   const services = await fetchStoryblokDatasource("services");

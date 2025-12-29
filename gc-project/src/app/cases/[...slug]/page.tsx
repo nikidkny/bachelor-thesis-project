@@ -1,6 +1,7 @@
 import { StoryblokStory } from "@storyblok/react/rsc";
 import { fetchStoryblokStory } from "@/lib/storyblok/fetch";
 import { notFound } from "next/navigation";
+import { draftMode } from "next/headers";
 
 export default async function CasePage({
   params,
@@ -12,7 +13,8 @@ export default async function CasePage({
     notFound();
   }
   const currentSlug = Array.isArray(slug) ? slug.join("/") : slug;
-  const { data } = await fetchStoryblokStory("cases/" + currentSlug);
+  const draft = await draftMode();
+  const { data } = await fetchStoryblokStory("cases/" + currentSlug,draft.isEnabled);
   if (!data?.story) {
     notFound();
   }
