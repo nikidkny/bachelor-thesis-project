@@ -10,10 +10,8 @@ storyblokInit({
   components,
 });
 
-export default function getStoryblokApi(isDev = false) {
-  const accessToken = isDev
-    ? process.env.STORYBLOK_DELIVERY_API_PREVIEW_TOKEN
-    : process.env.NEXT_PUBLIC_STORYBLOK_DELIVERY_API_PUBLIC_TOKEN;
+export default function getStoryblokApi() {
+  const accessToken = process.env.NEXT_PUBLIC_STORYBLOK_DELIVERY_API_PUBLIC_TOKEN;
 
   return new StoryblokClient({
     accessToken,
