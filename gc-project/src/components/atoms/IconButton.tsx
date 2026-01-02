@@ -18,10 +18,12 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       <Button
         ref={ref}
         className={classNames(
-          "flex items-center",
-          { "w-full justify-between py-4": props.variant === "burgerMenu" ,
-            "justify-center gap-3": props.variant !== "burgerMenu",
-            "bg-black p-3 rounded-sm text-white": !label
+          "flex  p-3 rounded-sm",
+          {
+            " justify-center": props.variant === "primary",
+            "bg-black items-center text-white gap-3":props.variant === "filter" || props.variant === "primary",
+            "justify-between": props.variant === "filter",
+
           },
           className,
         )}
@@ -29,7 +31,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         {...props}
       >
         {!trailingIcon && <Icon id={icon} />}
-        {label && <span className="ml-2">{label}</span>}
+        {label && <span className="">{label}</span>}
         {trailingIcon && <Icon id={icon} />}
       </Button>
     );

@@ -23,7 +23,7 @@ export interface Case {
 }
 
 export interface CaseOverview {
-  title?: string;
+  introText?: string;
   cases: (ISbStoryData<Case> | string)[];
   component: "CaseOverview";
   _uid: string;

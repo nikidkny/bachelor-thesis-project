@@ -24,6 +24,7 @@ export default function Homepage({ blok }: { blok: HomepageType }) {
   return (
     <div {...storyblokEditable(blok as any)} className="h-[75vh]">
       <ModelAsset url="/gc-high-processed.gltf" env="/env.exr" />
+      <div>A digital studio based in Copenhagen and Paris, working worldwide.</div>
     </div>
   );
 }

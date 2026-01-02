@@ -4,7 +4,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-12-17T11:22:33.166Z",
-    "updated_at": "2025-12-17T11:23:20.616Z",
+    "updated_at": "2025-12-30T09:33:05.874Z",
     "id": 124030784175739,
     "schema": {
       "asset": {
@@ -19,8 +19,18 @@
     "is_root": false,
     "preview_tmpl": null,
     "is_nestable": true,
-    "all_presets": [],
-    "preset_id": null,
+    "all_presets": [
+      {
+        "id": 128604461184133,
+        "name": "Placeholder",
+        "component_id": 124030784175739,
+        "image": "",
+        "icon": "",
+        "color": "",
+        "description": ""
+      }
+    ],
+    "preset_id": 128604461184133,
     "real_name": "AssetBlok",
     "component_group_uuid": "0ce4e5c9-635f-4ac8-8001-cfb357664ea5",
     "color": null,
@@ -35,7 +45,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-12-12T17:53:20.962Z",
-    "updated_at": "2025-12-28T17:31:27.560Z",
+    "updated_at": "2025-12-30T09:33:34.551Z",
     "id": 122357354351047,
     "schema": {
       "coverAsset": {
@@ -118,8 +128,18 @@
     "is_root": true,
     "preview_tmpl": null,
     "is_nestable": false,
-    "all_presets": [],
-    "preset_id": null,
+    "all_presets": [
+      {
+        "id": 128604621415558,
+        "name": "Placeholder",
+        "component_id": 122357354351047,
+        "image": "",
+        "icon": "",
+        "color": "",
+        "description": ""
+      }
+    ],
+    "preset_id": 128604621415558,
     "real_name": "Case",
     "component_group_uuid": "3f168a1f-a6a6-4aab-80cb-52c3cb2df300",
     "color": null,
@@ -134,17 +154,18 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-12-12T18:02:50.327Z",
-    "updated_at": "2025-12-28T15:00:07.821Z",
+    "updated_at": "2025-12-30T12:14:58.182Z",
     "id": 122359686470091,
     "schema": {
-      "title": {
+      "introText": {
         "type": "text",
-        "pos": 0,
-        "id": "4yX5rg0cS0-3MHuIHLB3dQ"
+        "pos": 1,
+        "required": false,
+        "id": "mV-Ly094Sj-Z_-Uc2wpGhA"
       },
       "cases": {
         "type": "options",
-        "pos": 1,
+        "pos": 2,
         "is_reference_type": true,
         "source": "internal_stories",
         "entry_appearance": "card",
@@ -179,7 +200,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-12-17T09:17:30.047Z",
-    "updated_at": "2025-12-21T14:08:45.699Z",
+    "updated_at": "2025-12-29T19:44:00.220Z",
     "id": 124000051403717,
     "schema": {
       "title": {
@@ -213,31 +234,36 @@
         "type": "text",
         "pos": 3,
         "id": "lGD4XjrcQ2y2gNSGyjleTw",
-        "required": true
+        "required": true,
+        "default_value": "Full Name"
       },
       "placeholderCompany": {
         "type": "text",
         "pos": 4,
         "id": "n3yzoerXQz2wEpwYg1r2-A",
-        "required": true
+        "required": true,
+        "default_value": "Company Name"
       },
       "placeholderEmail": {
         "type": "text",
         "pos": 5,
         "id": "mxW2pMfqTOugY-30YwAjdQ",
-        "required": true
+        "required": true,
+        "default_value": "Email"
       },
       "placeholderServices": {
         "type": "text",
         "pos": 6,
         "id": "VBBUOzZRSESszyA_ZcxiIA",
-        "required": true
+        "required": true,
+        "default_value": "Services"
       },
       "placeholderMessage": {
         "type": "text",
         "pos": 7,
         "id": "VHvFZkvIRBWHERyIS9xsMg",
-        "required": true
+        "required": true,
+        "default_value": "Tell us more about your project idea, budget, timeline etc"
       },
       "submitButtonLabel": {
         "type": "text",

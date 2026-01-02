@@ -12,15 +12,12 @@ import { storyblokEditable } from "@storyblok/react";
 
 export type AssetBlokProps = {
   blok: AssetBlokType;
-  mediaRef?: React.Ref<HTMLImageElement | HTMLVideoElement >;
+  mediaRef?: React.Ref<HTMLImageElement | HTMLVideoElement>;
   imageProps?: Omit<
     ImageAssetProps,
     "asset" | "lazy" | "width" | "height" | "objectFit"
   >;
-  videoProps?: Omit<
-    VideoAssetProps,
-    "asset"  | "lazy" | "width" | "height"
-  >;
+  videoProps?: Omit<VideoAssetProps, "asset" | "lazy" | "width" | "height">;
   width?: number;
   height?: number;
   lazy?: boolean;
@@ -51,14 +48,17 @@ export default function AssetBlok({
         <ImageAsset
           ref={mediaRef as React.Ref<HTMLImageElement>}
           asset={asset}
-          lazy={lazy}
           width={width}
           height={height}
-          className={classNames("relative size-full",{
-            "object-cover": objectFit === "cover",
-            "object-contain": objectFit === "contain",
-            "object-fill": objectFit === "fill",
-          }, className)}
+          className={classNames(
+            "relative size-full",
+            {
+              "object-cover": objectFit === "cover",
+              "object-contain": objectFit === "contain",
+              "object-fill": objectFit === "fill",
+            },
+            className,
+          )}
           {...storyblokEditable(blok as any)}
           {...imageProps}
         />
@@ -75,11 +75,11 @@ export default function AssetBlok({
         />
       )}
       {assetType === "model" && (
-            <ModelAsset
-               url={asset.filename}
-               {...storyblokEditable(blok as any)}
-            />
-        )}  
+        <ModelAsset
+          url={asset.filename}
+          {...storyblokEditable(blok as any)}
+        />
+      )}
     </>
   );
 }

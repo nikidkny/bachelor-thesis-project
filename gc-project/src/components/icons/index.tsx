@@ -5,6 +5,8 @@ import HelpSVG from "./HelpSVG";
 import ChevronRightSVG from "./ChevronRightSVG";
 import ChevronDownSVG from "./ChevronDownSVG";
 import ChevronUpSVG from "./ChevronUpSVG";
+import CheckmarkSVG from "./CheckmarkSVG";
+import FilterSVG from "./FilterSVG";
 
 
 export const icons = {
@@ -15,5 +17,7 @@ export const icons = {
     chevronRightIcon: ChevronRightSVG,
     chevronUpIcon: ChevronUpSVG,
     chevronDownIcon: ChevronDownSVG,
+    checkmarkIcon: CheckmarkSVG,
+    filterIcon: FilterSVG,
 };
 export type IconType = keyof typeof icons;
