@@ -18,11 +18,12 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       <Button
         ref={ref}
         className={classNames(
-          "flex  p-3 rounded-sm",
+          "flex p-3 rounded-sm",
           {
             " justify-center": props.variant === "primary",
             "bg-black items-center text-white gap-3":props.variant === "filter" || props.variant === "primary",
             "justify-between": props.variant === "filter",
+            "items-center justify-between": props.variant === "dropdownInput",
 
           },
           className,

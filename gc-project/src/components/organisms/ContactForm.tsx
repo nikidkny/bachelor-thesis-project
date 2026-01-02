@@ -10,16 +10,21 @@ import { storyblokEditable } from "@storyblok/react";
 
 export default function ContactForm({ blok }: { blok: ContactFormType }) {
   const { datasourceObject } = useData();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [formData, setFormData] = useState({
-    name: "",
-    company: "",
-    email: "",
-    service: "",
+    full_name: "",
+    company_name: "",
+    company_email: "",
+    services: [],
     message: "",
   });
 
   // console.log(blok.placeholderServices)
-  const updateField = (field: keyof typeof formData, value: string) => {
+  const updateField = (
+    field: keyof typeof formData,
+    value: string | string[],
+  ) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -28,20 +33,71 @@ export default function ContactForm({ blok }: { blok: ContactFormType }) {
     value: service.value,
   }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    console.log(formData);
     e.preventDefault();
-    // TODO: implement form submission logic
-
-    const submissionData = {
-      ...formData,
+    if (
+      formData.full_name === "" ||
+      formData.company_name === "" ||
+      formData.company_email === "" ||
+      formData.message === ""
+    ) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+    if (formData.services.length === 0) {
+      alert("Please select at least one service.");
+      return;
+    }
+    if (formData.message.length < 15) {
+      alert("Please enter a message of at least 15 characters.");
+      return;
+    }
+    const trimmedFormData = {
+      full_name: formData.full_name.trim(),
+      company_name: formData.company_name.trim(),
+      company_email: formData.company_email.trim(),
+      services: formData.services,
+      message: formData.message.trim(),
     };
+    setIsSubmitting(true);
 
-    // TODO: ADD VALIDATION 
     // TODO: SEND DATA TO BACKEND API
-    
+    try {
+      console.log("Submitting form data:", trimmedFormData);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(trimmedFormData),
+      });
+
+      console.log("Response received:", response);
+
+      if (response.ok) {
+        console.log("Form submitted successfully");
+        setFormData({
+          full_name: "",
+          company_name: "",
+          company_email: "",
+          services: [],
+          message: "",
+        });
+        alert("Thank you for contacting us! We will get back to you shortly.");
+        setIsSubmitting(false);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      console.log(trimmedFormData);
+    }
+    setIsSubmitting(false);
   };
   return (
-    <div {...storyblokEditable(blok as any)} className="col-span-full flex flex-col items-center">
+    <div
+      {...storyblokEditable(blok as any)}
+      className="col-span-full flex flex-col items-center px-4!"
+    >
       <div className="flex w-full max-w-2xl flex-col gap-8 py-8">
         <div className="text-center">
           <h3 className="typo-h3">{blok.title}</h3>
@@ -50,41 +106,44 @@ export default function ContactForm({ blok }: { blok: ContactFormType }) {
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col gap-4">
             <TextInput
-              id="name"
+              id="full_name"
               placeholder={blok.placeholderName}
-              value={formData.name}
-              name="name"
+              value={formData.full_name}
+              name="full_name"
               autoComplete="name"
+              minLength={2}
               required
-              onChange={(e) => updateField("name", e.target.value)}
+              onChange={(e) => updateField("full_name", e.target.value)}
             />
             <TextInput
-              id="company"
+              id="company_name"
               placeholder={blok.placeholderCompany}
-              value={formData.company}
-              name="company"
+              value={formData.company_name}
+              name="company_name"
+              minLength={2}
               autoComplete="organization"
               required
-              onChange={(e) => updateField("company", e.target.value)}
+              onChange={(e) => updateField("company_name", e.target.value)}
             />
             <TextInput
-              id="email"
+              id="company_email"
               placeholder={blok.placeholderEmail}
               type="email"
-              value={formData.email}
-              name="email"
+              value={formData.company_email}
+              name="company_email"
               autoComplete="email"
               required
-              onChange={(e) => updateField("email", e.target.value)}
+              onChange={(e) => updateField("company_email", e.target.value)}
             />
             <DropdownInput
-              id="service"
+              id="services"
               options={options}
               placeholder={blok.placeholderServices}
-              value={formData.service}
-              name="service"
+              value={formData.services}
+              selectedOption={formData.services}
+              setSetlectedOption={(values) => updateField("services", values)}
+              name="services"
               required
-              onChange={(e) => updateField("service", e.target.value)}
             />
             <TextareaInput
               id="message"
@@ -95,7 +154,7 @@ export default function ContactForm({ blok }: { blok: ContactFormType }) {
               onChange={(e) => updateField("message", e.target.value)}
             />
           </div>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" disabled={isSubmitting}>
             {blok.submitButtonLabel}
           </Button>
         </form>
