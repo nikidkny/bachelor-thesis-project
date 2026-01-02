@@ -4,8 +4,16 @@ const nextConfig: NextConfig = {
   /* config options here */
   images: {
     remotePatterns: [
-      new URL("https://a.storyblok.com/**"),
-      new URL("https://img2.storyblok.com/**"),
+      {
+        protocol: "https",
+        hostname: "a.storyblok.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "img2.storyblok.com",
+        pathname: "/**",
+      },
     ],
   },
 };
