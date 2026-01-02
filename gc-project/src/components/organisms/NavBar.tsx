@@ -81,6 +81,7 @@ export default function NavBar({
       {/* 768px down menu */}
       <div className="mr-auto md:hidden">
         <IconButton
+        variant="burgerMenu"
           icon="burgerMenuIcon"
           className={classNames("", {
             "!bg-black !text-white": scrolled,

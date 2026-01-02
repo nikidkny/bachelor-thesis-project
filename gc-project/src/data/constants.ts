@@ -16,11 +16,15 @@ export const BREAKPOINTS: Required<BreakpointsValues<number>>  = {
   "2xl": 1536,
 };
 
-
-export const CARDHEIGHT = 8;
-export const CARDWIDTH = 8;
-export const CARDDEPTH = 8;
+// 3D Cube Constants
+export const CUBEHEIGHT = 8;
+export const CUBEWIDTH = 8;
+export const CUBEDEPTH = 8;
 export const GAP = 0.01;
-export const TOTALCARDHEIGHT = CARDHEIGHT + GAP;
-export const TOWERGAP= CARDWIDTH + 1.5;
-export const MAXTOWERHEIGHT= 6;
+export const TOTALCUBEHEIGHT = CUBEHEIGHT + GAP;
+export const TOWERGAP= CUBEWIDTH + GAP;
+
+// 3D Layout constants
+export const GROUND_SIZE = 140;
+export const CUBES_SPAWN_HEIGHT= 6;
+export const MAX_CUBE_TO_CUBE_DISTANCE = 6;

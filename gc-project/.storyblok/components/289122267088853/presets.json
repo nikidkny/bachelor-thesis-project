@@ -1,0 +1,102 @@
+[
+  {
+    "id": 128604621415558,
+    "name": "Placeholder",
+    "preset": {
+      "_uid": "51adea69-e262-429a-a667-06241f275a1a",
+      "body": [],
+      "title": "Digital creative & ideation",
+      "services": [
+        "digital-creative-and-ideation"
+      ],
+      "component": "Case",
+      "cubeCover": {
+        "id": 128604111978773,
+        "alt": "",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "https://a.storyblok.com/f/289122267088853/275x183/b91cddd741/placeholder.png",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {},
+        "is_external_url": false
+      },
+      "introText": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "text": "Digital creative & ideation",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "coverAsset": [
+        {
+          "_uid": "db8d6198-cbf9-469b-b2ba-61f2d2d5fdbf",
+          "asset": {
+            "id": 128604111978773,
+            "alt": "",
+            "name": "",
+            "focus": "",
+            "title": "",
+            "source": "",
+            "filename": "https://a.storyblok.com/f/289122267088853/275x183/b91cddd741/placeholder.png",
+            "copyright": "",
+            "fieldtype": "asset",
+            "meta_data": {},
+            "is_external_url": false
+          },
+          "component": "AssetBlok"
+        }
+      ],
+      "projectYear": "2025"
+    },
+    "component_id": 122357354351047,
+    "space_id": 289122267088853,
+    "created_at": "2025-12-30T09:33:32.649Z",
+    "updated_at": "2025-12-30T09:33:32.649Z",
+    "image": "",
+    "color": "",
+    "icon": "",
+    "description": ""
+  },
+  {
+    "id": 128604461184133,
+    "name": "Placeholder",
+    "preset": {
+      "_uid": "db8d6198-cbf9-469b-b2ba-61f2d2d5fdbf",
+      "asset": {
+        "id": 128604111978773,
+        "alt": "",
+        "name": "",
+        "focus": "",
+        "title": "",
+        "source": "",
+        "filename": "https://a.storyblok.com/f/289122267088853/275x183/b91cddd741/placeholder.png",
+        "copyright": "",
+        "fieldtype": "asset",
+        "meta_data": {},
+        "is_external_url": false
+      },
+      "component": "AssetBlok"
+    },
+    "component_id": 124030784175739,
+    "space_id": 289122267088853,
+    "created_at": "2025-12-30T09:32:53.530Z",
+    "updated_at": "2025-12-30T09:32:53.530Z",
+    "image": "",
+    "color": "",
+    "icon": "",
+    "description": ""
+  }
+]
