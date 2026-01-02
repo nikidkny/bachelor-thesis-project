@@ -3,13 +3,13 @@ import Icon from "./Icon";
 import classNames from "classnames";
 
 type CheckboxInputProps = {
-  label?: string;
-  name?: string;
+  label: string;
+  name: string;
   disabled?: boolean;
   required?: boolean;
-  checked?: boolean;
-  onChange?: (checked: boolean) => void;
-  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+  onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   className?: string;
 };
 
@@ -34,6 +34,7 @@ const CheckboxInput = forwardRef<HTMLInputElement, CheckboxInputProps>(
             type="checkbox"
             disabled={disabled}
             checked={checked}
+            required={required}
             onKeyDown={onKeyDown}
             onChange={() => {}}
             {...props}
