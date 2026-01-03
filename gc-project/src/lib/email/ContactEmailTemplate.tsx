@@ -1,4 +1,4 @@
-import { ContactEmailType } from "@/types/ContactEmailType";
+import { ContactEmailType } from "@/types/ContactEmailType"
 import {
   Html,
   Tailwind,
