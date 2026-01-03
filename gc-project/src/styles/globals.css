@@ -18,7 +18,7 @@
     :root{
       --custom-grid-padding: 2rem;
       --custom-grid-gap: 1rem;
-      --custom-grid-columns: 8;
+      --custom-grid-columns: 6;
     }
   } */
   @media (width >= 1280px) {
