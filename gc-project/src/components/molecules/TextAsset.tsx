@@ -7,27 +7,33 @@ import { storyblokEditable } from "@storyblok/react";
 
 export default function TextAsset({ blok }: { blok: TextAssetType }) {
   const isAssetLeft = blok.alignAsset === "alignLeft";
+  console.log(blok.alignAsset);
   return (
-    <div {...storyblokEditable(blok as any)}  className="custom-grid col-span-full px-4! py-8 gap-x-10! gap-y-4">
-      <div className={classNames(
-          "flex flex-col justify-center relative col-span-full sm:col-span-2 xl:col-span-6 ",
-          isAssetLeft ? "row-1 xl:col-start-1 " : "row-2 xl:col-start-7 sm:row-1",
-        )}>
+    <div
+      {...storyblokEditable(blok as any)}
+      className="custom-grid col-span-full gap-x-10! gap-y-4 px-4! py-8"
+    >
       <div
         className={classNames(
-          " aspect-3/4 lg:aspect-3/4 ",
+          "relative col-span-full row-2 flex flex-col justify-center sm:col-span-2 xl:col-span-6",
+          isAssetLeft
+            ? "sm:col-start-1 sm:row-1"
+            : "sm:col-start-3 sm:row-1 xl:col-start-7",
         )}
       >
-        <AssetBlok blok={blok.asset[0]} objectFit="fill"  />
-      </div>
+        <div className={classNames("aspect-3/4 lg:aspect-3/4")}>
+          <AssetBlok blok={blok.asset[0]} objectFit="fill" />
+        </div>
       </div>
       <div
         className={classNames(
-          "col-span-full sm:col-span-2 xl:col-span-6 flex flex-col gap-4 justify-center",
-          isAssetLeft ? "row-2 xl:col-start-7 sm:row-1" : "row-1 xl:col-start-1 ",
+          "col-span-full row-1 flex flex-col justify-center gap-4 sm:col-span-2 xl:col-span-6",
+          isAssetLeft
+            ? "sm:col-start-3  xl:col-start-7"
+            : "sm:col-start-1 ",
         )}
       >
-        <h3 className="text-[28px] md:text-[32px] ">{blok.title}</h3>
+        <h3 className="text-[28px] md:text-[32px]">{blok.title}</h3>
         {blok.richtext && <Richtext document={blok.richtext} />}
       </div>
     </div>
