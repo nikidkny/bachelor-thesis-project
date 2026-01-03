@@ -1,5 +1,5 @@
 "use client";
-import { ContactForm as ContactFormType } from "@/types";
+import { Contact as ContactType } from "@/types";
 import TextInput from "../atoms/TextInput";
 import TextareaInput from "../atoms/TextareaInput";
 import DropdownInput from "../atoms/DropdownInput";
@@ -8,7 +8,8 @@ import { useData } from "@/providers/DataProvider";
 import { useState } from "react";
 import { storyblokEditable } from "@storyblok/react";
 
-export default function ContactForm({ blok }: { blok: ContactFormType }) {
+export default function ContactForm({ blok }: { blok: ContactType }) {
+    console.log(blok);
   const { datasourceObject } = useData();
   const [isSubmitting, setIsSubmitting] = useState(false);
 

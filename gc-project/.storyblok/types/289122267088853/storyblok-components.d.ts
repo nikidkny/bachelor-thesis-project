@@ -14,7 +14,7 @@ export interface Case {
   title: string;
   projectYear: string;
   services: (number | string)[];
-  body?: (AssetBlok | ContactForm | GalleryText | SimpleLink | TextAsset)[];
+  body?: (AssetBlok | GalleryText | SimpleLink | TextAsset)[];
   cubeCover: StoryblokAsset;
   component: "Case";
   _uid: string;
@@ -30,13 +30,6 @@ export interface CaseOverview {
 }
 
 export interface Contact {
-  contactForm: ContactForm[];
-  component: "Contact";
-  _uid: string;
-  [k: string]: unknown;
-}
-
-export interface ContactForm {
   title: string;
   subtitle: string;
   placeholders?: unknown;
@@ -46,7 +39,7 @@ export interface ContactForm {
   placeholderServices: string;
   placeholderMessage: string;
   submitButtonLabel: string;
-  component: "ContactForm";
+  component: "Contact";
   _uid: string;
   [k: string]: unknown;
 }
@@ -80,7 +73,6 @@ export interface Page {
     | Case
     | CaseOverview
     | Contact
-    | ContactForm
     | DropdownInput
     | GalleryText
     | Homepage
