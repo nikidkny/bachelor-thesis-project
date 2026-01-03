@@ -53,8 +53,11 @@ export default function CaseOverview({ blok }: { blok: CaseOverviewType }) {
     (caseItem): caseItem is ISbStoryData<Case> => typeof caseItem !== "string",
   );
 
-  function onKeyDown(event: React.KeyboardEvent<HTMLDivElement>, serviceValue: string) {
-    if (event.key === ' ' || event.key === 'Enter') {
+  function onKeyDown(
+    event: React.KeyboardEvent<HTMLDivElement>,
+    serviceValue: string,
+  ) {
+    if (event.key === " " || event.key === "Enter") {
       event.preventDefault();
       toggleServiceCheckbox(serviceValue);
     }
@@ -95,7 +98,7 @@ export default function CaseOverview({ blok }: { blok: CaseOverviewType }) {
           </Physics>
         </Suspense>
       </Canvas>
-      <div className="fixed right-4 bottom-4 sm:bottom-10 md:bottom-16 left-4 text-black sm:w-1/2 md:right-0 md:w-1/3">
+      <div className="fixed right-4 bottom-4 left-4 text-black sm:bottom-10 sm:w-1/2 md:right-0 md:bottom-16 md:w-1/3">
         <IconButton
           icon="filterIcon"
           onClick={() => setOpenFilter(!openFilter)}
@@ -108,11 +111,11 @@ export default function CaseOverview({ blok }: { blok: CaseOverviewType }) {
         />
       </div>
       {openFilter && (
-        <div className="fixed right-4 bottom-17 sm:bottom-24 md:bottom-29 left-4 sm:w-1/2 md:w-1/3">
+        <div className="fixed right-4 bottom-17 left-4 sm:bottom-24 sm:w-1/2 md:bottom-29 md:w-1/3">
           <div className="flex w-full flex-col gap-2 rounded-md bg-white p-6">
             <div className="flex flex-col">
               <div className="col-flex flex items-center justify-between gap-8">
-                <h3>What services are you looking for?</h3>
+                <h3 className="text-[20px]">What services are you looking for?</h3>
                 <IconButton
                   icon="closeIcon"
                   onClick={() => setOpenFilter(false)}
@@ -123,11 +126,12 @@ export default function CaseOverview({ blok }: { blok: CaseOverviewType }) {
               <div className="flex items-start">
                 <Button
                   variant="justText"
+                  type="button"
                   className={classNames(
-                    "",
+                    "flex w-full justify-start",
                     selectedServices.length === 0
-                      ? "pointer-events-none opacity-0"
-                      : "",
+                      ? "pointer-events-none text-black no-underline! opacity-50"
+                      : "cursor-pointer !text-[#141414a8]",
                   )}
                   onClick={() => setSelectedServices([])}
                 >
