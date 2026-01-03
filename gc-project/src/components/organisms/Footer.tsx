@@ -17,8 +17,8 @@ export default function Footer() {
   return (
     <footer className="text-center">
 
-      {!isContact && <div className="flex flex-col gap-2 p-15 text-white">
-        <div className="text-[40px] font-bold md:text-[60px]">
+      {!isContact && <div className="flex flex-col gap-2 p-10 md:p-15 text-white">
+        <div className="text-[36px] font-bold md:text-[60px]">
           {settings?.footerContactHeadline}
         </div>
         <div className="flex flex-col gap-8">
