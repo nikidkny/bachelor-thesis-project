@@ -19,14 +19,14 @@ export default function GalleryText({ blok }: { blok: GalleryTextType }) {
       >
         <div
           className={classNames(
-            "flex flex-col gap-5 py-5 md:py-0 md:gap-20 self-start  md:sticky md:top-25",
+            "flex flex-col gap-5 py-5 md:py-0 md:gap-4 self-start  md:sticky md:top-25",
           )}
         >
           {blok.headline && (
-            <h3 className="text-[24px] md:text-[48px]">{blok.headline}</h3>
+            <h3 className="text-[28px] md:text-[32px]">{blok.headline}</h3>
           )}
           {blok.text && (
-            <div className="text-[16px] md:text-[20px]">
+            <div className="text-[16px]">
               <Richtext document={blok.text} />
             </div>
           )}
