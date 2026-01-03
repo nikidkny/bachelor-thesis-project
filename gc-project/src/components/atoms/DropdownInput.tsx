@@ -97,6 +97,7 @@ const DropdownInput = forwardRef<HTMLSelectElement, DropdownInputProps>(
             className,
           )}
           icon={open ? "chevronUpIcon" : "chevronDownIcon"}
+          aria-expanded={open}
         ></IconButton>
         {open && (
           <ul

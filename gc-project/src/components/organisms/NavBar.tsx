@@ -57,6 +57,8 @@ export default function NavBar({
             asset={settings.content.headerLogo}
             width={75}
             height={75}
+            lazy={true}
+            aria-label="Navigate to homepage"
           />
         </Link>
       </div>
@@ -97,6 +99,7 @@ export default function NavBar({
                 "!bg-white !text-black": !scrolled,
               })}
               onClick={() => setMenuOpen(true)}
+              aria-label="Open Menu"
             />
           </div>
           <div className="flex items-center justify-center">
@@ -110,6 +113,7 @@ export default function NavBar({
                 "!text-white": !scrolled,
               })}
             onClick={() => router.push("/contact")}
+            aria-label="Navigate to contact page"
             />
           </div>
         </div>
@@ -123,6 +127,7 @@ export default function NavBar({
                   setMenuOpen(false);
                   setShowOverlay(false);
                 }}
+                aria-label="Close Menu"
               />
             </div>
             {!showOverlay && (

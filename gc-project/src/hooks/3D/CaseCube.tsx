@@ -109,6 +109,7 @@ export default function CaseCube({
               icon="closeIcon"
               className={isTouchDevice ? "block" : "hidden"}
               onClick={() => setActive(null)}
+              aria-label="Close Case short details"
             />
           </div>
           <ul className="flex max-w-[75vw] flex-wrap gap-2 sm:flex-nowrap">
