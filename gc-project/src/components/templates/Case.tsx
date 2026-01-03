@@ -8,9 +8,9 @@ import Tag from "../atoms/Tag";
 import { formatDatasourceNames } from "@/utils/formatDatasourceNames";
 import AssetBlok from "../atoms/AssetBlok";
 import classNames from "classnames";
+import Footer from "../organisms/Footer";
 
 export default function Case({ blok }: { blok: CaseType }) {
-  // TODO: FORMAT SERVICE NAMES
 
   return (
     <div {...storyblokEditable(blok as any)} className="relative col-span-full">
@@ -33,18 +33,13 @@ export default function Case({ blok }: { blok: CaseType }) {
               );
             })}
           </div>
-
-          {blok.introText && (
-            <div className="">
-              <Richtext document={blok.introText}></Richtext>
-            </div>
-          )}
         </div>
 
         {blok.body?.map((nestedBlok) => (
           <StoryblokServerComponent key={nestedBlok._uid} blok={nestedBlok} />
         ))}
       </div>
+      <Footer  />
     </div>
   );
 }

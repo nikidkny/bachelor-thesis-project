@@ -9,31 +9,35 @@ import classNames from "classnames";
 export interface IconButtonProps extends Omit<ButtonProps, "children"> {
   icon: IconType;
   label?: string;
+  iconWidth?: number;
+  iconHeight?: number;
   trailingIcon?: boolean;
 }
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ icon, className, label, trailingIcon = true, ...props }, ref) => {
+  ({ icon, className, label, trailingIcon = true, iconWidth, iconHeight, ...props }, ref) => {
     return (
       <Button
         ref={ref}
         className={classNames(
-          "flex p-3 rounded-sm",
+          "flex rounded-sm",
           {
-            " justify-center": props.variant === "primary",
-            "bg-black items-center text-white gap-3":props.variant === "filter" || props.variant === "primary",
-            "justify-between": props.variant === "filter",
-            "items-center justify-between": props.variant === "dropdownInput",
-
+            "justify-center p-3": props.variant === "primary",
+            "items-center gap-3 bg-black p-3 text-white":
+              props.variant === "filter" || props.variant === "primary",
+            "justify-between p-3": props.variant === "filter",
+            "items-center justify-between p-3":
+              props.variant === "dropdownInput",
+              "p-3": props.variant === "burgerMenu",
           },
           className,
         )}
         aria-label={label}
         {...props}
       >
-        {!trailingIcon && <Icon id={icon} />}
+        {!trailingIcon && <Icon id={icon} width={iconWidth ? iconWidth : 5} height={iconHeight ? iconHeight : 5}/>}
         {label && <span className="">{label}</span>}
-        {trailingIcon && <Icon id={icon} />}
+        {trailingIcon && <Icon id={icon} width={iconWidth ? iconWidth : 5} height={iconHeight ? iconHeight : 5}/>}
       </Button>
     );
   },
@@ -42,4 +46,3 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 IconButton.displayName = "IconButton";
 
 export default IconButton;
-

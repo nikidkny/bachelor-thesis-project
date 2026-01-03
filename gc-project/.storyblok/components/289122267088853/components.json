@@ -45,7 +45,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-12-12T17:53:20.962Z",
-    "updated_at": "2025-12-30T09:33:34.551Z",
+    "updated_at": "2026-01-02T22:38:50.263Z",
     "id": 122357354351047,
     "schema": {
       "coverAsset": {
@@ -92,12 +92,6 @@
         "exclude_empty_option": true,
         "required": true
       },
-      "introText": {
-        "type": "richtext",
-        "pos": 4,
-        "id": "5HIxUu-RSdKWGG_7yRFugQ",
-        "required": true
-      },
       "body": {
         "type": "bloks",
         "pos": 5,
@@ -120,7 +114,9 @@
           "images"
         ],
         "required": true,
-        "id": "p1FWeJ3UTX6AxGE5AEBIxg"
+        "id": "p1FWeJ3UTX6AxGE5AEBIxg",
+        "description": "This is the cover for the 3D cube representing this case for the \"Case Overview\" page. The image will be the square sides of the cubes.\n- Recommended to use the logo of the company the case is about.\n- The image will be fully visible, no cropping!\n- Square or near square images work best\n- Keep the content centered",
+        "tooltip": false
       }
     },
     "image": null,
@@ -128,18 +124,8 @@
     "is_root": true,
     "preview_tmpl": null,
     "is_nestable": false,
-    "all_presets": [
-      {
-        "id": 128604621415558,
-        "name": "Placeholder",
-        "component_id": 122357354351047,
-        "image": "",
-        "icon": "",
-        "color": "",
-        "description": ""
-      }
-    ],
-    "preset_id": 128604621415558,
+    "all_presets": [],
+    "preset_id": null,
     "real_name": "Case",
     "component_group_uuid": "3f168a1f-a6a6-4aab-80cb-52c3cb2df300",
     "color": null,
@@ -187,6 +173,45 @@
     "all_presets": [],
     "preset_id": null,
     "real_name": "CaseOverview",
+    "component_group_uuid": "3f168a1f-a6a6-4aab-80cb-52c3cb2df300",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "Contact",
+    "display_name": null,
+    "description": "",
+    "created_at": "2026-01-03T05:29:22.308Z",
+    "updated_at": "2026-01-03T10:22:45.905Z",
+    "id": 129960191224363,
+    "schema": {
+      "contactForm": {
+        "type": "bloks",
+        "pos": 0,
+        "required": true,
+        "minimum": 1,
+        "maximum": 1,
+        "restrict_type": "",
+        "restrict_components": true,
+        "component_whitelist": [
+          "ContactForm"
+        ],
+        "component_denylist": [],
+        "id": "fjqqV9UuQIu31NcXFV3NsQ"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Contact",
     "component_group_uuid": "3f168a1f-a6a6-4aab-80cb-52c3cb2df300",
     "color": null,
     "icon": null,
@@ -321,11 +346,78 @@
     "metadata": {}
   },
   {
+    "name": "GalleryText",
+    "display_name": null,
+    "description": "",
+    "created_at": "2026-01-02T22:07:07.417Z",
+    "updated_at": "2026-01-02T22:41:15.970Z",
+    "id": 129851504305806,
+    "schema": {
+      "media": {
+        "type": "bloks",
+        "pos": 0,
+        "required": true,
+        "minimum": 2,
+        "restrict_type": "",
+        "restrict_components": true,
+        "component_whitelist": [
+          "AssetBlok"
+        ],
+        "component_denylist": [],
+        "id": "-dAmX8G6QaqtR00mJW-1Zg"
+      },
+      "headline": {
+        "type": "text",
+        "pos": 1,
+        "id": "591g1vYrQMW5uaKQ4vBQnA"
+      },
+      "text": {
+        "type": "richtext",
+        "pos": 2,
+        "id": "Wq9XeZrpTjyv-_7mrF5FOQ"
+      },
+      "alignMedia": {
+        "type": "option",
+        "pos": 3,
+        "use_uuid": true,
+        "options": [
+          {
+            "_uid": "ee7fc52e-166f-4359-9bff-0a0827e25176",
+            "value": "alignLeft",
+            "name": "Align Left"
+          },
+          {
+            "_uid": "b794c28c-cd7a-4bd8-8fe1-b7c9f6207622",
+            "value": "alignRight",
+            "name": "Align Right"
+          }
+        ],
+        "default_value": "alignLeft",
+        "id": "ZiRaqo91RzSRYDAT7sF5kw"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "GalleryText",
+    "component_group_uuid": "0ce4e5c9-635f-4ac8-8001-cfb357664ea5",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
     "name": "Homepage",
     "display_name": null,
     "description": "",
     "created_at": "2025-12-15T12:57:37.140Z",
-    "updated_at": "2025-12-15T13:01:51.073Z",
+    "updated_at": "2026-01-02T22:50:57.882Z",
     "id": 123346358854790,
     "schema": {},
     "image": null,
@@ -374,22 +466,62 @@
     "metadata": {}
   },
   {
+    "name": "richtext",
+    "display_name": null,
+    "description": "",
+    "created_at": "2026-01-02T22:09:17.710Z",
+    "updated_at": "2026-01-02T22:09:41.047Z",
+    "id": 129852037985935,
+    "schema": {
+      "richtext": {
+        "type": "richtext",
+        "pos": 0,
+        "required": true,
+        "id": "-IHz6PVPTI69JdfDO-3CXg"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "richtext",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
     "name": "Settings",
     "display_name": null,
     "description": "",
     "created_at": "2025-12-16T12:17:57.080Z",
-    "updated_at": "2025-12-21T07:50:00.952Z",
+    "updated_at": "2026-01-03T08:52:49.298Z",
     "id": 123690504531646,
     "schema": {
-      "navLogo": {
+      "headerLogo": {
         "type": "asset",
         "pos": 0,
         "id": "_9LklEy0ThiM-KzYwmnkuA",
+        "required": true,
+        "filetypes": [
+          "images"
+        ]
+      },
+      "headerContactButtonLabel": {
+        "type": "text",
+        "pos": 1,
+        "id": "I-v7cNmTS2WhE09SYAv_9A",
         "required": true
       },
-      "menu": {
+      "headerNav": {
         "type": "bloks",
-        "pos": 1,
+        "pos": 2,
         "restrict_type": "",
         "restrict_components": true,
         "id": "VHXwXbp1T0mTmLlR9817mg",
@@ -399,6 +531,61 @@
         ],
         "component_denylist": [],
         "maximum": 5
+      },
+      "footerContactHeadline": {
+        "type": "text",
+        "pos": 3,
+        "required": true,
+        "id": "2z7x06-JRG6Q9Clmn2vrBQ"
+      },
+      "footerContactTagline": {
+        "type": "text",
+        "pos": 4,
+        "required": true,
+        "id": "SK81Ku2MQ-i3684E14wQuw"
+      },
+      "footerContactButtonLabel": {
+        "type": "text",
+        "pos": 5,
+        "required": true,
+        "id": "wLX9TYo3TXSsaq2YWfUE4w"
+      },
+      "footerLogo": {
+        "type": "asset",
+        "pos": 6,
+        "required": true,
+        "filetypes": [
+          "images"
+        ],
+        "id": "6DthCxNhT2mWEe95SyMfUw"
+      },
+      "footerTagline": {
+        "type": "text",
+        "pos": 7,
+        "id": "1aC0j1-EQ5ab91T1-ieEQw",
+        "required": true
+      },
+      "footerSocials": {
+        "type": "bloks",
+        "pos": 8,
+        "restrict_type": "",
+        "restrict_components": true,
+        "component_whitelist": [
+          "SimpleLink"
+        ],
+        "component_denylist": [],
+        "id": "Y8VDeVILQR6RcOP9fDL6rA"
+      },
+      "footerPhone": {
+        "type": "text",
+        "pos": 9,
+        "id": "7EbC3JZoRNazAssQ-6TiOQ"
+      },
+      "footerCopywrite": {
+        "type": "text",
+        "pos": 10,
+        "id": "xIU-vBWRQxyxoFzrcR7vRw",
+        "required": true
       }
     },
     "image": null,
@@ -446,7 +633,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-12-16T12:22:40.987Z",
-    "updated_at": "2025-12-16T12:28:11.863Z",
+    "updated_at": "2026-01-03T08:22:07.604Z",
     "id": 123691667414722,
     "schema": {
       "link": {
@@ -458,7 +645,7 @@
         "show_anchor": false,
         "allow_target_blank": true
       },
-      "linktText": {
+      "linkText": {
         "type": "text",
         "pos": 1,
         "id": "BCxhGxS2SXqpfw_onwxopw",

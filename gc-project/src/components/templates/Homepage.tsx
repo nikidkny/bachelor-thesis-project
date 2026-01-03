@@ -3,6 +3,7 @@
 import { storyblokEditable } from "@storyblok/react";
 import ModelAsset from "../atoms/3DAsset";
 import { Homepage as HomepageType } from "@/types";
+import Footer from "../organisms/Footer";
 
 export default function Homepage({ blok }: { blok: HomepageType }) {
   /*TODO: ADJUST 3D MODEL TO LOOK EXACTLY LIKE THE LOGO */
@@ -24,7 +25,7 @@ export default function Homepage({ blok }: { blok: HomepageType }) {
   return (
     <div {...storyblokEditable(blok as any)} className="h-[75vh]">
       <ModelAsset url="/gc-high-processed.gltf" env="/env.exr" />
-      <div>A digital studio based in Copenhagen and Paris, working worldwide.</div>
+      <Footer />
     </div>
   );
 }

@@ -8,7 +8,7 @@ const DataContext = createContext<{
   datasourceObject: StoryblokDatasourceObjectType;
   settings: Settings;
   cases: ISbStoryData<Case>[];
-}>(null!);
+}>(undefined!);
 
 interface DataProviderProps {
   datasourceObject: StoryblokDatasourceObjectType;

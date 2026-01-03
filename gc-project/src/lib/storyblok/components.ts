@@ -9,6 +9,8 @@ import TextInput from "@/components/atoms/TextInput";
 import TextareaInput from "@/components/atoms/TextareaInput";
 import DropdownInput from "@/components/atoms/DropdownInput";
 import AssetBlok from "@/components/atoms/AssetBlok";
+import GalleryText from "@/components/molecules/GalleryText";
+import Contact from "@/components/templates/Contact";
 
 const components = {
   ExampleComponent,
@@ -22,6 +24,8 @@ const components = {
   TextAsset,
   ContactForm,
   AssetBlok,
+  GalleryText,
+  Contact
 };
 
 export default components;

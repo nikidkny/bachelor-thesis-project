@@ -8,6 +8,8 @@ import { ISbStoryData, storyblokEditable } from "@storyblok/react/ssr";
 import { Settings } from "@/types";
 import { resolveLink } from "@/lib/storyblok/resolveLink";
 import classNames from "classnames";
+import Button from "../atoms/Button";
+import { useRouter } from "next/navigation";
 
 export default function NavBar({
   settings,
@@ -17,16 +19,17 @@ export default function NavBar({
   const [menuOpen, setMenuOpen] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
 
-  useEffect(()=>{
-    if (menuOpen){
-      document.body.style.overflow = 'hidden';
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = '';
-    }
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   useEffect(() => {
@@ -42,22 +45,26 @@ export default function NavBar({
   }, []);
   return (
     <nav
-    {...storyblokEditable(settings as any)}
+      {...storyblokEditable(settings as any)}
       className={classNames(
-        "fixed top-0 left-0 z-999 w-full col-span-full flex items-center px-4 py-4 transition-colors duration-200",
+        "fixed top-0 left-0 z-999 col-span-full flex w-full items-center px-8 py-4 transition-colors duration-200",
         { "bg-white": scrolled, "bg-transparent": !scrolled },
       )}
     >
       <div className="absolute left-1/2 -translate-x-1/2">
         <Link href="/">
-          <ImageAsset asset={settings.content.navLogo} width={75} height={75} />
+          <ImageAsset
+            asset={settings.content.headerLogo}
+            width={75}
+            height={75}
+          />
         </Link>
       </div>
 
       {/* Desktop menu */}
       <div className="mr-auto hidden md:block">
         <div className="relative flex gap-8">
-          {settings.content.menu.map((menuItem) => {
+          {settings.content.headerNav.map((menuItem) => {
             const resolvedLink = resolveLink(menuItem.link);
             if (!resolvedLink) return null;
             return (
@@ -71,7 +78,7 @@ export default function NavBar({
                   "text-white": !scrolled,
                 })}
               >
-                {menuItem.linktText}
+                {menuItem.linkText}
               </Link>
             );
           })}
@@ -79,19 +86,34 @@ export default function NavBar({
       </div>
 
       {/* 768px down menu */}
-      <div className="mr-auto md:hidden">
-        <IconButton
-        variant="burgerMenu"
-          icon="burgerMenuIcon"
-          className={classNames("", {
-            "!bg-black !text-white": scrolled,
-            "!bg-white !text-black": !scrolled,
-          })}
-          onClick={() => setMenuOpen(true)}
-        />
-
+      <div className="mr-auto w-full md:hidden">
+        <div className="flex justify-between">
+          <div>
+            <IconButton
+              variant="burgerMenu"
+              icon="burgerMenuIcon"
+              className={classNames("", {
+                "!bg-black !text-white": scrolled,
+                "!bg-white !text-black": !scrolled,
+              })}
+              onClick={() => setMenuOpen(true)}
+            />
+          </div>
+          <div className="flex items-center justify-center">
+            <IconButton
+              iconHeight={30}
+              iconWidth={30}
+              icon="contactIcon"
+              variant="iconOnly"
+              className={classNames("", {
+                "!text-black": scrolled,
+                "!text-white": !scrolled,
+              })}
+            />
+          </div>
+        </div>
         {menuOpen && (
-          <div className="fixed inset-0 z-100 flex h-full w-full flex-col gap-4 bg-white p-4 overflow-y-auto">
+          <div className="fixed inset-0 z-100 flex h-full w-full flex-col gap-4 overflow-y-auto bg-white p-4">
             <div className="">
               <IconButton
                 icon="closeIcon"
@@ -104,7 +126,7 @@ export default function NavBar({
             </div>
             {!showOverlay && (
               <div className="flex flex-col items-start gap-2">
-                {settings.content.menu.map((menuItem) => {
+                {settings.content.headerNav.map((menuItem) => {
                   const resolvedLink = resolveLink(menuItem.link);
                   if (!resolvedLink) return null;
                   return (
@@ -119,7 +141,7 @@ export default function NavBar({
                       }}
                       className="w-full cursor-pointer border-b py-4 hover:bg-[#ffffff80]"
                     >
-                      {menuItem.linktText}
+                      {menuItem.linkText}
                     </Link>
                   );
                 })}
@@ -127,6 +149,9 @@ export default function NavBar({
             )}
           </div>
         )}
+      </div>
+      <div className="hidden md:block" onClick={() => router.push("/contact")}>
+        <Button variant="getInTouch">Get in touch</Button>
       </div>
     </nav>
   );

@@ -95,7 +95,7 @@ export default function CaseOverview({ blok }: { blok: CaseOverviewType }) {
           </Physics>
         </Suspense>
       </Canvas>
-      <div className="fixed right-4 bottom-16 left-4 text-black sm:right-0 sm:w-1/3">
+      <div className="fixed right-4 bottom-4 sm:bottom-10 md:bottom-16 left-4 text-black sm:w-1/2 md:right-0 md:w-1/3">
         <IconButton
           icon="filterIcon"
           onClick={() => setOpenFilter(!openFilter)}
@@ -108,7 +108,7 @@ export default function CaseOverview({ blok }: { blok: CaseOverviewType }) {
         />
       </div>
       {openFilter && (
-        <div className="fixed right-4 bottom-29 left-4 sm:w-1/3">
+        <div className="fixed right-4 bottom-17 sm:bottom-24 md:bottom-29 left-4 sm:w-1/2 md:w-1/3">
           <div className="flex w-full flex-col gap-2 rounded-md bg-white p-6">
             <div className="flex flex-col">
               <div className="col-flex flex items-center justify-between gap-8">

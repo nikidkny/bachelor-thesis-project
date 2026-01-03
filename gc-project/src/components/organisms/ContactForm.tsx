@@ -154,9 +154,11 @@ export default function ContactForm({ blok }: { blok: ContactFormType }) {
               onChange={(e) => updateField("message", e.target.value)}
             />
           </div>
-          <Button variant="primary" type="submit" disabled={isSubmitting}>
-            {blok.submitButtonLabel}
-          </Button>
+          <div className="w-full flex justify-center pt-4">
+            <Button variant="primary" type="submit" disabled={isSubmitting} className="w-full">
+              {blok.submitButtonLabel}
+            </Button>
+          </div>
         </form>
       </div>
     </div>
