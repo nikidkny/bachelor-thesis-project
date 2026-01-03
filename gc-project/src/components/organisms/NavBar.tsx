@@ -109,6 +109,7 @@ export default function NavBar({
                 "!text-black": scrolled,
                 "!text-white": !scrolled,
               })}
+            onClick={() => router.push("/contact")}
             />
           </div>
         </div>

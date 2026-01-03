@@ -30,7 +30,7 @@ export default function ContactForm({ blok }: { blok: ContactType }) {
   const options = datasourceObject.services.map((service) => ({
     label: service.name,
     value: service.value,
-  }));
+  })).sort((a, b) => a.label.localeCompare(b.label));
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,7 +70,6 @@ export default function ContactForm({ blok }: { blok: ContactType }) {
         body: JSON.stringify(trimmedFormData),
       });
 
-
       if (response.ok) {
         setFormData({
           full_name: "",
@@ -90,7 +89,7 @@ export default function ContactForm({ blok }: { blok: ContactType }) {
   return (
     <div
       {...storyblokEditable(blok as any)}
-      className="col-span-full flex flex-col items-center px-4!"
+      className="col-span-full flex flex-col items-center px-4! py-18!"
     >
       <div className="flex w-full max-w-2xl flex-col gap-8 py-8">
         <div className="text-center">
@@ -119,26 +118,28 @@ export default function ContactForm({ blok }: { blok: ContactType }) {
               required
               onChange={(e) => updateField("company_name", e.target.value)}
             />
-            <TextInput
-              id="company_email"
-              placeholder={blok.placeholderEmail}
-              type="email"
-              value={formData.company_email}
-              name="company_email"
-              autoComplete="email"
-              required
-              onChange={(e) => updateField("company_email", e.target.value)}
-            />
-            <DropdownInput
-              id="services"
-              options={options}
-              placeholder={blok.placeholderServices}
-              value={formData.services}
-              selectedOption={formData.services}
-              setSetlectedOption={(values) => updateField("services", values)}
-              name="services"
-              required
-            />
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <TextInput
+                id="company_email"
+                placeholder={blok.placeholderEmail}
+                type="email"
+                value={formData.company_email}
+                name="company_email"
+                autoComplete="email"
+                required
+                onChange={(e) => updateField("company_email", e.target.value)}
+              />
+              <DropdownInput
+                id="services"
+                options={options}
+                placeholder={blok.placeholderServices}
+                value={formData.services}
+                selectedOption={formData.services}
+                setSetlectedOption={(values) => updateField("services", values)}
+                name="services"
+                required
+              />
+            </div>
             <TextareaInput
               id="message"
               placeholder={blok.placeholderMessage}
@@ -148,8 +149,13 @@ export default function ContactForm({ blok }: { blok: ContactType }) {
               onChange={(e) => updateField("message", e.target.value)}
             />
           </div>
-          <div className="w-full flex justify-center pt-4">
-            <Button variant="primary" type="submit" disabled={isSubmitting} className="w-full">
+          <div className="flex w-full justify-center pt-4">
+            <Button
+              variant="primary"
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full"
+            >
               {blok.submitButtonLabel}
             </Button>
           </div>

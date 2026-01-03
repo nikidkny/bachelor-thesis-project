@@ -11,7 +11,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, children, variant , ...props },
+    { className, children, variant,onBlur , ...props },
     ref,
   ) => {
 
@@ -30,6 +30,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           "pointer-events-none opacity-50": props.disabled,
           "bg-black rounded-md text-white p-2 text-[12px] ": variant === "getInTouch",
         }, className)}
+        onBlur={onBlur}
         {...props}
       >
         {children}

@@ -1,10 +1,11 @@
 "use client";
 
-import { forwardRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import CheckboxInput from "./CheckboxInput";
 import IconButton from "./IconButton";
 import { formatDatasourceNames } from "@/utils/formatDatasourceNames";
+import Button from "./Button";
 
 export type DropdownInputProps =
   React.SelectHTMLAttributes<HTMLSelectElement> & {
@@ -32,6 +33,7 @@ const DropdownInput = forwardRef<HTMLSelectElement, DropdownInputProps>(
     },
     ref,
   ) => {
+    const dropdownRef = useRef<HTMLDivElement>(null);
     const [open, setOpen] = useState(false);
 
     const toggleOptionCheckbox = (optionValue: string) => {
@@ -39,8 +41,6 @@ const DropdownInput = forwardRef<HTMLSelectElement, DropdownInputProps>(
         ? selectedOption.filter((v) => v != optionValue)
         : [...selectedOption, optionValue];
       setSetlectedOption(newSelectedOption);
-
-      // onChange(newSelectedOption);
     };
 
     function onKeyDown(
@@ -56,8 +56,25 @@ const DropdownInput = forwardRef<HTMLSelectElement, DropdownInputProps>(
       }
     }
 
+    useEffect(() => {
+      // handle clicking outside to close the dropdown
+      function handleClickOutsideDropdown(event: MouseEvent) {
+        if (
+          dropdownRef.current &&
+          !dropdownRef.current.contains(event.target as Node)
+        ) {
+          setOpen(false);
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutsideDropdown);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutsideDropdown);
+      };
+    }, []);
+
     return (
-      <div className="relative w-full">
+      <div className="relative w-full" ref={dropdownRef}>
         <IconButton
           label={
             selectedOption.length === 0
@@ -75,14 +92,30 @@ const DropdownInput = forwardRef<HTMLSelectElement, DropdownInputProps>(
             }
           }}
           className={classNames(
-            "justify-between transition-colors text-[20px]",
+            "h-full w-full justify-between px-2 py-3 text-[20px] transition-colors",
             selectedOption.length === 0 ? "text-[#141414a8]" : "text-black",
             className,
           )}
           icon={open ? "chevronUpIcon" : "chevronDownIcon"}
         ></IconButton>
         {open && (
-          <ul className="absolute z-10 max-h-60 w-full max-w-2xl overflow-y-auto bg-white p-4 shadow-md">
+          <ul
+            className="absolute z-10 mt-1 flex max-h-65 w-full max-w-2xl flex-col gap-2 overflow-y-auto scroll-auto rounded-md bg-[#0a0a0af2] p-4 text-[#b8b8b8] shadow-md"
+            style={{ scrollbarColor: "#ffffff #ffffff" }}
+          >
+            <Button
+              variant="justText"
+              type="button"
+              className={classNames(
+                "flex w-full justify-end",
+                selectedOption.length === 0
+                  ? "pointer-events-none text-white no-underline! opacity-50"
+                  : "cursor-pointer !text-[#b8b8b8]",
+              )}
+              onClick={() => setSetlectedOption([])}
+            >
+              Clear
+            </Button>
             {options.map((option) => (
               <li key={option.value}>
                 <CheckboxInput
@@ -98,33 +131,6 @@ const DropdownInput = forwardRef<HTMLSelectElement, DropdownInputProps>(
           </ul>
         )}
       </div>
-      // <label className="w-full">
-      //   <select
-      //     id={props.id}
-      //     name={name}
-      //     aria-label={name}
-      //     ref={ref}
-      //     value={value || ""}
-      //     onChange={onChange}
-      //     className={classNames(
-      //       "placeholder:text-gray-500 h-full w-full cursor-pointer overflow-hidden rounded-sm border border-black py-4 pl-2 text-[20px] text-ellipsis focus:outline-none",
-
-      //       className,
-      //     )}
-      //     {...props}
-      //   >
-      //     {placeholder && (
-      //       <option value="" hidden>
-      //         {placeholder}
-      //       </option>
-      //     )}
-      //     {options.map((option) => (
-      //       <option key={option.value} value={option.value}>
-      //         {option.label}
-      //       </option>
-      //     ))}
-      //   </select>
-      // </label>
     );
   },
 );

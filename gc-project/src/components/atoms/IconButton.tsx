@@ -26,7 +26,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
             "items-center gap-3 bg-black p-3 text-white":
               props.variant === "filter" || props.variant === "primary",
             "justify-between p-3": props.variant === "filter",
-            "items-center justify-between p-3":
+            "items-center justify-between":
               props.variant === "dropdownInput",
               "p-3": props.variant === "burgerMenu",
           },

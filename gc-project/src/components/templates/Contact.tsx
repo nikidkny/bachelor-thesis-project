@@ -4,7 +4,7 @@ import Footer from "../organisms/Footer";
 
 export default function Contact({blok}: {blok: ContactType}) {
   return (
-    <div className="pt-25">
+    <div className="">
       <ContactForm blok={blok} />
       <Footer />
     </div>
