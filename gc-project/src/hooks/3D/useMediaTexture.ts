@@ -1,10 +1,8 @@
 import { useTexture } from "@react-three/drei";
-import { useEffect, useMemo } from "react";
+import {  useMemo } from "react";
 import { type Texture } from "three";
 import { isImage } from "@/utils/file";
 import * as THREE from "three";
-import { storyblokImageLoader } from "@/lib/storyblok";
-import { CUBEHEIGHT, CUBEWIDTH } from "@/data/constants";
 
 export type MediaTexture = {
   texture: Texture;
@@ -14,36 +12,6 @@ export type MediaTexture = {
 
 const DEFAULT_SIZE = 1024;
 
-// function applyObjectContain(
-//   texture: Texture,
-//   width: number,
-//   height: number,
-//   padding = 0.9,
-// ) {
-//   if (!texture || !width || !height) return;
-//   const textureAspect = width / height;
-//   const planeAspect = CUBEHEIGHT / CUBEWIDTH;
-//   if (textureAspect > planeAspect) {
-//     // the image is wider than the plane then cropping the sides to fit it
-//     //repeat.x = 1, repeat.y = planeAspect / textureAspect , padding to shrink
-//     texture.repeat.set(1 * padding, (planeAspect / textureAspect) * padding);
-//     // center
-//     texture.offset.set((1 - texture.repeat.x) / 2, (1 - texture.repeat.y) / 2);
-//   } else {
-//     // the image is taller then the plane so croppping the top and bottom to fit
-//      texture.repeat.set((textureAspect / planeAspect) * padding, 1 * padding);
-//      // centering
-//          texture.offset.set((1 - texture.repeat.x) / 2, (1 - texture.repeat.y) / 2);
-
-//   }
-//   texture.needsUpdate = true;
-// }
-
-
-// function cenerTextures(texture: Texture,){
-//    texture.offset.set((1 - texture.repeat.x) / 2, (1 - texture.repeat.y) / 2);
-
-// }
 
 export function useMediaTexture(
   src: string = "",

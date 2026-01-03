@@ -50,6 +50,7 @@ export default function AssetBlok({
           asset={asset}
           width={width}
           height={height}
+          lazy={assetType === "image" ? lazy : false}
           className={classNames(
             "relative size-full",
             {

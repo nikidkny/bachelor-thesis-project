@@ -43,7 +43,7 @@ export default function GalleryText({ blok }: { blok: GalleryTextType }) {
             key={index}
             className="mb-4 aspect-296/319 h-auto w-full md:aspect-704/796 md:max-w-[704px] xl:aspect-738/796 xl:max-w-[738px]"
           >
-            <AssetBlok blok={assetBlok} objectFit="contain" />
+            <AssetBlok blok={assetBlok} objectFit="contain"/>
           </div>
         ))}
       </div>

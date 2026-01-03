@@ -61,6 +61,7 @@ export default function Footer() {
                 asset={settings.footerLogo}
                 width={180}
                 height={120}
+                lazy={true}
               />
             </Link>
           </div>
