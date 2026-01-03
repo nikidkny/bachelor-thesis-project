@@ -1,7 +1,7 @@
 import { ISbStoryData } from "storyblok-js-client";
 import CaseCube from "./CaseCube";
 import { Case } from "@/types";
-import {  useMemo, useState } from "react";
+import {   useState } from "react";
 import { calculateCubePositions } from "./calculateCubePositions";
 import { calculateCubeRotations } from "./calculateCubeRotations";
 
@@ -19,8 +19,8 @@ export default function ScatteredCubes({
   const cubes = fullListofCases.filter((item) => typeof item !== "string");
   // to store the active cube id
   const [activeCubeId, setActiveCubeId] = useState<string | null>(null);
-  const cubePositions = useMemo(() => calculateCubePositions(fullListofCases), [fullListofCases]);
-  const cubeRotations = useMemo(() => calculateCubeRotations(fullListofCases), [fullListofCases]);
+  const cubePositions =  calculateCubePositions(fullListofCases);
+  const cubeRotations =  calculateCubeRotations(fullListofCases);
 
   return (
     <group position={[8, 0, 5]}>

@@ -74,9 +74,7 @@ export default function CaseOverview({ blok }: { blok: CaseOverviewType }) {
         gl={{
           outputColorSpace: THREE.SRGBColorSpace,
           toneMapping: THREE.NoToneMapping,
-          antialias: true,
         }}
-        dpr={typeof window !== "undefined" && window.devicePixelRatio > 1 ? 1 : 1}
       >
         <OrbitControls
           target={[0, 0, 0]}
