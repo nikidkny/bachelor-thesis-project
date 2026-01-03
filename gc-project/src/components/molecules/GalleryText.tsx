@@ -6,7 +6,6 @@ import classNames from "classnames";
 
 export default function GalleryText({ blok }: { blok: GalleryTextType }) {
   const isMediaLeftAlign = blok.alignMedia === "alignLeft";
-  console.log(blok.alignMedia);
   return (
     <div
       {...storyblokEditable(blok as any)}

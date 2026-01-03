@@ -9,7 +9,6 @@ import { useState } from "react";
 import { storyblokEditable } from "@storyblok/react";
 
 export default function ContactForm({ blok }: { blok: ContactType }) {
-    console.log(blok);
   const { datasourceObject } = useData();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -21,7 +20,6 @@ export default function ContactForm({ blok }: { blok: ContactType }) {
     message: "",
   });
 
-  // console.log(blok.placeholderServices)
   const updateField = (
     field: keyof typeof formData,
     value: string | string[],
@@ -35,7 +33,6 @@ export default function ContactForm({ blok }: { blok: ContactType }) {
   }));
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log(formData);
     e.preventDefault();
     if (
       formData.full_name === "" ||
@@ -65,7 +62,6 @@ export default function ContactForm({ blok }: { blok: ContactType }) {
 
     // TODO: SEND DATA TO BACKEND API
     try {
-      console.log("Submitting form data:", trimmedFormData);
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -74,10 +70,8 @@ export default function ContactForm({ blok }: { blok: ContactType }) {
         body: JSON.stringify(trimmedFormData),
       });
 
-      console.log("Response received:", response);
 
       if (response.ok) {
-        console.log("Form submitted successfully");
         setFormData({
           full_name: "",
           company_name: "",
@@ -90,7 +84,6 @@ export default function ContactForm({ blok }: { blok: ContactType }) {
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      console.log(trimmedFormData);
     }
     setIsSubmitting(false);
   };

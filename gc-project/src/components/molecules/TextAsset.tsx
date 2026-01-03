@@ -6,7 +6,6 @@ import classNames from "classnames";
 import { storyblokEditable } from "@storyblok/react";
 
 export default function TextAsset({ blok }: { blok: TextAssetType }) {
-  // console.log("TextAsset blok:", blok.alignAsset);
   const isAssetLeft = blok.alignAsset === "alignLeft";
   return (
     <div {...storyblokEditable(blok as any)}  className="custom-grid col-span-full px-4! py-8 gap-x-10! gap-y-4">
