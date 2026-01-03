@@ -2,6 +2,13 @@
 // DO NOT MODIFY THIS FILE BY HAND.
 import type { ISbStoryData } from '@storyblok/js';
 import type { StoryblokAsset, StoryblokRichtext, StoryblokMultilink } from '../storyblok.d.ts';
+export interface About {
+  content?: (AssetBlok | Gallery | GalleryText | SimpleLink | TextAsset)[];
+  component: "About";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface AssetBlok {
   asset: StoryblokAsset;
   component: "AssetBlok";
@@ -14,7 +21,7 @@ export interface Case {
   title: string;
   projectYear: string;
   services: (number | string)[];
-  body?: (AssetBlok | GalleryText | SimpleLink | TextAsset)[];
+  body?: (AssetBlok | Gallery | GalleryText | SimpleLink | TextAsset)[];
   cubeCover: StoryblokAsset;
   component: "Case";
   _uid: string;
@@ -22,7 +29,6 @@ export interface Case {
 }
 
 export interface CaseOverview {
-  introText?: string;
   cases: (ISbStoryData<Case> | string)[];
   component: "CaseOverview";
   _uid: string;
@@ -51,6 +57,14 @@ export interface DropdownInput {
   [k: string]: unknown;
 }
 
+export interface Gallery {
+  headline?: string;
+  media: AssetBlok[];
+  component: "Gallery";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface GalleryText {
   media: AssetBlok[];
   headline?: string;
@@ -69,11 +83,13 @@ export interface Homepage {
 
 export interface Page {
   body?: (
+    | About
     | AssetBlok
     | Case
     | CaseOverview
     | Contact
     | DropdownInput
+    | Gallery
     | GalleryText
     | Homepage
     | Page
@@ -139,7 +155,7 @@ export interface TextareaInput {
 
 export interface TextAsset {
   title?: string;
-  richtext?: StoryblokRichtext;
+  richtext: StoryblokRichtext;
   asset: AssetBlok[];
   alignAsset?: "alignLeft" | "alignRight";
   component: "TextAsset";

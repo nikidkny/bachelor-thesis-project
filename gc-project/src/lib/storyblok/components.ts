@@ -11,6 +11,8 @@ import DropdownInput from "@/components/atoms/DropdownInput";
 import AssetBlok from "@/components/atoms/AssetBlok";
 import GalleryText from "@/components/molecules/GalleryText";
 import Contact from "@/components/templates/Contact";
+import About from "@/components/templates/About";
+import Gallery from "@/components/molecules/Gallery";
 
 const components = {
   ExampleComponent,
@@ -25,7 +27,9 @@ const components = {
   ContactForm,
   AssetBlok,
   GalleryText,
-  Contact
+  Contact,
+  About,
+  Gallery,
 };
 
 export default components;

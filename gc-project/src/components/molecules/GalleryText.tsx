@@ -9,7 +9,7 @@ export default function GalleryText({ blok }: { blok: GalleryTextType }) {
   return (
     <div
       {...storyblokEditable(blok as any)}
-      className="custom-grid col-span-full px-5! py-10! gap-x-5!"
+      className="custom-grid col-span-full gap-x-5! px-5! py-10!"
     >
       <div
         className={classNames(
@@ -19,7 +19,7 @@ export default function GalleryText({ blok }: { blok: GalleryTextType }) {
       >
         <div
           className={classNames(
-            "flex flex-col gap-5 py-5 md:py-0 md:gap-4 self-start  md:sticky md:top-25",
+            "flex flex-col gap-5 self-start py-5 md:sticky md:top-25 md:gap-4 md:py-0",
           )}
         >
           {blok.headline && (
@@ -34,7 +34,7 @@ export default function GalleryText({ blok }: { blok: GalleryTextType }) {
       </div>
       <div
         className={classNames(
-          "col-span-full row-2 flex flex-1 flex-col gap-4  md:col-span-2 md:row-1 xl:col-span-6",
+          "col-span-full row-2 flex flex-1 flex-col gap-4 md:col-span-2 md:row-1 xl:col-span-6",
           isMediaLeftAlign ? "md:col-start-1" : "md:col-start-3",
         )}
       >
@@ -43,7 +43,7 @@ export default function GalleryText({ blok }: { blok: GalleryTextType }) {
             key={index}
             className="mb-4 aspect-296/319 h-auto w-full md:aspect-704/796 md:max-w-[704px] xl:aspect-738/796 xl:max-w-[738px]"
           >
-            <AssetBlok blok={assetBlok} objectFit="contain"/>
+            <AssetBlok blok={assetBlok} objectFit="contain" />
           </div>
         ))}
       </div>

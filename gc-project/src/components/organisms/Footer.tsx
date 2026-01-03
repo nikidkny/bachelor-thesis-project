@@ -9,31 +9,31 @@ import ImageAsset from "../atoms/ImageAsset";
 export default function Footer() {
   const { settings } = useData();
   const router = useRouter();
-  const pathname = usePathname()
-
+  const pathname = usePathname();
 
   // if the page has (/contact) route, do not render the footer contact section
   const isContact = pathname.includes("/contact");
   return (
     <footer className="text-center">
-
-      {!isContact && <div className="flex flex-col gap-2 p-10 md:p-15 text-white">
-        <div className="text-[36px] font-bold md:text-[60px]">
-          {settings?.footerContactHeadline}
-        </div>
-        <div className="flex flex-col gap-8">
-          <div>{settings?.footerContactTagline}</div>
-          <div>
-            <Button variant="primary" onClick={() => router.push("/contact")}>
-              Get in touch
-            </Button>
+      {!isContact && (
+        <div className="flex flex-col gap-2 p-10 text-white md:p-15">
+          <div className="text-[36px] font-bold md:text-[60px]">
+            {settings?.footerContactHeadline}
+          </div>
+          <div className="flex flex-col gap-8">
+            <div>{settings?.footerContactTagline}</div>
+            <div>
+              <Button variant="primary" onClick={() => router.push("/contact")}>
+                Get in touch
+              </Button>
+            </div>
           </div>
         </div>
-      </div>}
+      )}
       <div className="px-[20px]">
-        <div className="relative flex flex-col items-center gap-4 rounded-t-md bg-white py-10 pt-5 md:pt-15 pb-5">
+        <div className="relative flex flex-col items-center gap-4 rounded-t-md bg-white py-10 pt-5 pb-5 md:pt-15">
           <div className="flex flex-col gap-8">
-            <div className="text-[16px] px-4">{settings?.footerTagline}</div>
+            <div className="px-4 text-[16px]">{settings?.footerTagline}</div>
             <div className="flex flex-col gap-2">
               <div className="flex flex-row justify-center gap-4">
                 {settings.footerSocials?.map((social, index) => {
@@ -67,7 +67,7 @@ export default function Footer() {
           </div>
         </div>
         <div>
-            <span className="text-[12px]">{settings.footerCopywrite}</span>
+          <span className="text-[12px]">{settings.footerCopywrite}</span>
         </div>
       </div>
     </footer>

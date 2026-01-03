@@ -21,16 +21,14 @@ export default function TextAsset({ blok }: { blok: TextAssetType }) {
             : "sm:col-start-3 sm:row-1 xl:col-start-7",
         )}
       >
-        <div className={classNames("aspect-3/4 lg:aspect-3/4")}>
-          <AssetBlok blok={blok.asset[0]} objectFit="fill" />
+        <div className={classNames("aspect-296/319 h-auto w-full md:aspect-704/796 md:max-w-[704px] xl:aspect-738/796 xl:max-w-[738px]")}>
+          <AssetBlok blok={blok.asset[0]} objectFit="contain" />
         </div>
       </div>
       <div
         className={classNames(
           "col-span-full row-1 flex flex-col justify-center gap-4 sm:col-span-2 xl:col-span-6",
-          isAssetLeft
-            ? "sm:col-start-3  xl:col-start-7"
-            : "sm:col-start-1 ",
+          isAssetLeft ? "sm:col-start-3 xl:col-start-7" : "sm:col-start-1",
         )}
       >
         <h3 className="text-[28px] md:text-[32px]">{blok.title}</h3>
