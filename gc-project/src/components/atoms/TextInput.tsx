@@ -43,7 +43,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           maxLength={maxLength}
           onChange={onChange}
           className={classNames(
-            "h-full w-full rounded-sm border border-black py-4 pl-2 text-[20px] focus:outline-none",
+            "h-full w-full rounded-sm border border-black py-4 pl-2 text-[20px] focus:outline-none placeholder:text-[#141414a8]",
             className,
           )}
           {...props}

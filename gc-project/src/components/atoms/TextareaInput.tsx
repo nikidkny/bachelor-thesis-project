@@ -16,7 +16,7 @@ const TextareaInput = forwardRef<HTMLTextAreaElement, TextareaInputProps>(
           id={props.id}
           ref={ref}
           onChange={onChange}
-          className="h-32 w-full resize-none rounded-sm border border-black py-4 pl-2 text-[20px] focus:outline-none"
+          className="h-32 w-full resize-none rounded-sm border border-black py-4 pl-2 text-[20px] focus:outline-none placeholder:text-[#141414a8]"
           {...props}
         />
       </label>

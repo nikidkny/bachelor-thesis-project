@@ -74,7 +74,11 @@ const DropdownInput = forwardRef<HTMLSelectElement, DropdownInputProps>(
               setOpen(false);
             }
           }}
-          className={classNames("justify-between", className)}
+          className={classNames(
+            "justify-between transition-colors text-[20px]",
+            selectedOption.length === 0 ? "text-[#141414a8]" : "text-black",
+            className,
+          )}
           icon={open ? "chevronUpIcon" : "chevronDownIcon"}
         ></IconButton>
         {open && (
