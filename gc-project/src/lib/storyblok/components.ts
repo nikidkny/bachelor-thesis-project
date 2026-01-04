@@ -12,7 +12,7 @@ import AssetBlok from "@/components/atoms/AssetBlok";
 import GalleryText from "@/components/molecules/GalleryText";
 import Contact from "@/components/templates/Contact";
 import About from "@/components/templates/About";
-import Gallery from "@/components/molecules/Gallery";
+import FullScreenAsset from "@/components/atoms/FullScreenAsset";
 
 const components = {
   ExampleComponent,
@@ -29,7 +29,7 @@ const components = {
   GalleryText,
   Contact,
   About,
-  Gallery,
+  FullScreenAsset,
 };
 
 export default components;

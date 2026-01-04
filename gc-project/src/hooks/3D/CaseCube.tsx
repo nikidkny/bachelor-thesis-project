@@ -203,6 +203,7 @@ export default function CaseCube({
         onClick={(e) => {
           // this is so that the click only gets to the card and not the whole canvas (stop bubbling)
           e.stopPropagation();
+          document.body.style.cursor = "default";
           // for touch devices
           if (isTouchDevice) {
             setActive(active ? null : caseData.uuid);

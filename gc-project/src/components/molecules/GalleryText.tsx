@@ -13,7 +13,7 @@ export default function GalleryText({ blok }: { blok: GalleryTextType }) {
     >
       <div
         className={classNames(
-          "relative col-span-full row-1 md:col-span-2 md:pb-10 xl:col-span-6",
+          "relative col-span-full row-1 md:col-span-2 md:pb-10 xl:col-span-7",
           isMediaLeftAlign ? "md:col-start-3" : "md:col-start-1",
         )}
       >
@@ -34,14 +34,14 @@ export default function GalleryText({ blok }: { blok: GalleryTextType }) {
       </div>
       <div
         className={classNames(
-          "col-span-full row-2 flex flex-1 flex-col gap-4 md:col-span-2 md:row-1 xl:col-span-6",
+          "col-span-full row-2 flex flex-1 justify-center flex-col gap-4 md:col-span-2 md:row-1 xl:col-span-5",
           isMediaLeftAlign ? "md:col-start-1" : "md:col-start-3",
         )}
       >
         {blok.media.map((assetBlok, index) => (
           <div
             key={index}
-            className="mb-4 aspect-296/319 h-auto w-full md:aspect-704/796 md:max-w-[704px] xl:aspect-738/796 xl:max-w-[738px]"
+            className="relative mb-4 aspect-240/319 h-auto w-full md:aspect-597/796 md:max-w-[597px]"
           >
             <AssetBlok blok={assetBlok} objectFit="contain" />
           </div>

@@ -14,8 +14,8 @@ export default function Case({ blok }: { blok: CaseType }) {
 
   return (
     <div {...storyblokEditable(blok as any)} className="relative col-span-full">
-      <div className="relative col-span-full aspect-16/12 w-full md:aspect-16/9">
-        <AssetBlok blok={blok.coverAsset[0]} />
+      <div className="relative col-span-full aspect-320/171 w-full h-[40vh] md:h-[80vh] xl:aspect-1280/687">
+        <AssetBlok blok={blok.coverAsset[0]} objectFit="cover" />
       </div>
       <div
         className={classNames("custom-grid col-span-full")}

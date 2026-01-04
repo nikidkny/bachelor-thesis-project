@@ -3,7 +3,7 @@
 import type { ISbStoryData } from '@storyblok/js';
 import type { StoryblokAsset, StoryblokRichtext, StoryblokMultilink } from '../storyblok.d.ts';
 export interface About {
-  content?: (AssetBlok | Gallery | GalleryText | SimpleLink | TextAsset)[];
+  content?: (AssetBlok | FullScreenAsset | GalleryText | SimpleLink | TextAsset)[];
   component: "About";
   _uid: string;
   [k: string]: unknown;
@@ -21,7 +21,7 @@ export interface Case {
   title: string;
   projectYear: string;
   services: (number | string)[];
-  body?: (AssetBlok | Gallery | GalleryText | SimpleLink | TextAsset)[];
+  body?: (AssetBlok | FullScreenAsset | GalleryText | SimpleLink | TextAsset)[];
   cubeCover: StoryblokAsset;
   component: "Case";
   _uid: string;
@@ -57,10 +57,9 @@ export interface DropdownInput {
   [k: string]: unknown;
 }
 
-export interface Gallery {
-  headline?: string;
-  media: AssetBlok[];
-  component: "Gallery";
+export interface FullScreenAsset {
+  asset: AssetBlok[];
+  component: "FullScreenAsset";
   _uid: string;
   [k: string]: unknown;
 }
@@ -89,7 +88,7 @@ export interface Page {
     | CaseOverview
     | Contact
     | DropdownInput
-    | Gallery
+    | FullScreenAsset
     | GalleryText
     | Homepage
     | Page

@@ -18,8 +18,8 @@ export type AssetBlokProps = {
     "asset" | "lazy" | "width" | "height" | "objectFit"
   >;
   videoProps?: Omit<VideoAssetProps, "asset" | "lazy" | "width" | "height">;
-  width?: number;
-  height?: number;
+  width?: number | `${number}`;
+  height?: number | `${number}`;
   lazy?: boolean;
   objectFit?: Extract<ObjectFit, "cover" | "contain" | "fill"> | "none";
   className?: string;
@@ -34,7 +34,7 @@ export default function AssetBlok({
   width,
   height,
   lazy,
-  objectFit = "none",
+  objectFit = "contain",
   ...props
 }: AssetBlokProps) {
   const asset = blok.asset;
@@ -43,7 +43,7 @@ export default function AssetBlok({
   if (!asset || assetType === "unknown") return null;
   if (!asset.filename) return null;
   return (
-    <>
+    <div className="size-full" {...props}>
       {assetType === "image" && (
         <ImageAsset
           ref={mediaRef as React.Ref<HTMLImageElement>}
@@ -57,6 +57,7 @@ export default function AssetBlok({
               "object-cover": objectFit === "cover",
               "object-contain": objectFit === "contain",
               "object-fill": objectFit === "fill",
+              "object-none": objectFit === "none",
             },
             className,
           )}
@@ -70,17 +71,24 @@ export default function AssetBlok({
           src={asset.filename}
           width={width}
           height={height}
-          className={classNames("relative size-full", className)}
+          className={classNames(
+            "relative size-full",
+            {
+              "object-cover": objectFit === "cover",
+              "object-contain": objectFit === "contain",
+              "object-fill": objectFit === "fill",
+              "object-none": objectFit === "none",
+            },
+            className,
+          )}
           {...storyblokEditable(blok as any)}
           {...videoProps}
+          autoPlay
         />
       )}
       {assetType === "model" && (
-        <ModelAsset
-          url={asset.filename}
-          {...storyblokEditable(blok as any)}
-        />
+        <ModelAsset url={asset.filename} {...storyblokEditable(blok as any)} />
       )}
-    </>
+    </div>
   );
 }
