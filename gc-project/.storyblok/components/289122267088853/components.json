@@ -87,7 +87,7 @@
     "display_name": null,
     "description": "",
     "created_at": "2025-12-12T17:53:20.962Z",
-    "updated_at": "2026-01-02T22:38:50.263Z",
+    "updated_at": "2026-01-05T04:48:32.055Z",
     "id": 122357354351047,
     "schema": {
       "coverAsset": {
@@ -103,15 +103,6 @@
         "component_denylist": [],
         "maximum": 1,
         "minimum": 1
-      },
-      "tab-c859f528-2776-44be-88b9-4259ada27008": {
-        "display_name": "thumbnails",
-        "keys": [
-          "cubeCover"
-        ],
-        "pos": 0,
-        "type": "tab",
-        "id": "yFn1KCd2RL6IuUJZraJwCA"
       },
       "title": {
         "type": "text",
@@ -134,6 +125,12 @@
         "exclude_empty_option": true,
         "required": true
       },
+      "shortIntroText": {
+        "type": "text",
+        "pos": 4,
+        "required": true,
+        "id": "rwSRYWH8TfW3WYDkVKAeuA"
+      },
       "body": {
         "type": "bloks",
         "pos": 5,
@@ -148,6 +145,15 @@
         "component_group_denylist": [],
         "component_tag_whitelist": [],
         "component_tag_denylist": []
+      },
+      "tab-c859f528-2776-44be-88b9-4259ada27008": {
+        "display_name": "thumbnails",
+        "keys": [
+          "cubeCover"
+        ],
+        "pos": 6,
+        "type": "tab",
+        "id": "yFn1KCd2RL6IuUJZraJwCA"
       },
       "cubeCover": {
         "type": "asset",
@@ -502,11 +508,11 @@
     "metadata": {}
   },
   {
-    "name": "richtext",
+    "name": "Richtext",
     "display_name": null,
     "description": "",
     "created_at": "2026-01-02T22:09:17.710Z",
-    "updated_at": "2026-01-02T22:09:41.047Z",
+    "updated_at": "2026-01-05T04:47:53.066Z",
     "id": 129852037985935,
     "schema": {
       "richtext": {
@@ -523,7 +529,7 @@
     "is_nestable": true,
     "all_presets": [],
     "preset_id": null,
-    "real_name": "richtext",
+    "real_name": "Richtext",
     "component_group_uuid": null,
     "color": null,
     "icon": null,

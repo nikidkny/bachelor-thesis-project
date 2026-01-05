@@ -21,6 +21,7 @@ export interface Case {
   title: string;
   projectYear: string;
   services: (number | string)[];
+  shortIntroText: string;
   body?: (AssetBlok | FullScreenAsset | GalleryText | SimpleLink | TextAsset)[];
   cubeCover: StoryblokAsset;
   component: "Case";
@@ -107,7 +108,7 @@ export interface Page {
 
 export interface Richtext {
   richtext: StoryblokRichtext;
-  component: "richtext";
+  component: "Richtext";
   _uid: string;
   [k: string]: unknown;
 }

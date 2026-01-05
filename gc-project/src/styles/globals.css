@@ -2,8 +2,8 @@
 @import "./utilities.css";
 
 @layer base {
-  html,
   body {
+  font-family: "Arial, sans-serif"
   }
   :root {
     /* colors */

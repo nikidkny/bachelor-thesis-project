@@ -1,4 +1,3 @@
-import ExampleComponent from "@/components/ExampleComponent";
 import Homepage from "@/components/templates/Homepage";
 import CaseOverview from "@/components/templates/CaseOverview";
 import Case from "@/components/templates/Case";
@@ -13,9 +12,9 @@ import GalleryText from "@/components/molecules/GalleryText";
 import Contact from "@/components/templates/Contact";
 import About from "@/components/templates/About";
 import FullScreenAsset from "@/components/atoms/FullScreenAsset";
+import Richtext from "@/components/atoms/Richtext";
 
 const components = {
-  ExampleComponent,
   Homepage,
   CaseOverview,
   Case,
@@ -30,6 +29,7 @@ const components = {
   Contact,
   About,
   FullScreenAsset,
+  Richtext,
 };
 
 export default components;

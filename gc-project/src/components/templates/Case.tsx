@@ -33,6 +33,7 @@ export default function Case({ blok }: { blok: CaseType }) {
               );
             })}
           </div>
+          <div>{blok.shortIntroText}</div>
         </div>
 
         {blok.body?.map((nestedBlok) => (
