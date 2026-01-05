@@ -84,22 +84,20 @@ export default function CaseOverview({ blok }: { blok: CaseOverviewType }) {
           minPolarAngle={Math.PI / 6}
           maxPolarAngle={Math.PI / 2.2}
         />
-        <Suspense>
+        <Suspense fallback={null}>
           <ambientLight intensity={1} />
           <directionalLight position={[10, 30, 10]} intensity={1} castShadow />
           <Physics>
-            <Suspense fallback={null}>
-              <RigidBody type="fixed" friction={1}>
-                <mesh receiveShadow position={[0, 0, 0]}>
-                  <boxGeometry args={[175, 4, 175]} />
-                  <meshStandardMaterial color="#EAFFB4" />
-                </mesh>
-              </RigidBody>
-              <ScatteredCubes
-                fullListofCases={allCasesChosen}
-                filteredCases={filteredCases}
-              />
-            </Suspense>
+            <RigidBody type="fixed" friction={1}>
+              <mesh receiveShadow position={[0, 0, 0]}>
+                <boxGeometry args={[175, 4, 175]} />
+                <meshStandardMaterial color="#EAFFB4" />
+              </mesh>
+            </RigidBody>
+            <ScatteredCubes
+              fullListofCases={allCasesChosen}
+              filteredCases={filteredCases}
+            />
           </Physics>
         </Suspense>
       </Canvas>
