@@ -8,13 +8,14 @@ import { Canvas } from "@react-three/fiber";
 import { Physics, RigidBody } from "@react-three/rapier";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { useData } from "@/providers/DataProvider";
-import CheckboxInput from "./CheckboxInput";
+
 import { ISbStoryData } from "storyblok-js-client";
-import IconButton from "./IconButton";
 import ScatteredCubes from "@/hooks/3D/ScatteredCubes";
-import Button from "./Button";
 import classNames from "classnames";
 import { preloadTextures } from "@/hooks/3D/preloadTextures";
+import CheckboxInput from "../atoms/CheckboxInput";
+import IconButton from "../atoms/IconButton";
+import Button from "../atoms/Button";
 
 export default function CaseOverview({ blok }: { blok: CaseOverviewType }) {
   /* TODO: ADD CHECKBOX INSTEAD OF ICON BUTTONS AND MAKE THE ACTUAL FILTERING WORK */
