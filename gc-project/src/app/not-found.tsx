@@ -1,4 +1,4 @@
-import NotFoundClient from "../components/atoms/NotFoundClient";
+import NotFoundClient from "../components/organisms/NotFoundClient";
 
 export default function NotFound() {
   return <NotFoundClient />;
