@@ -67,7 +67,7 @@ export interface FullScreenAsset {
 
 export interface GalleryText {
   media: AssetBlok[];
-  headline?: string;
+  headline: string;
   text?: StoryblokRichtext;
   alignMedia?: "" | "alignLeft" | "alignRight";
   component: "GalleryText";
